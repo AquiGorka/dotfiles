@@ -1,0 +1,11 @@
+[user]
+	email = gorka@aquigorka.com
+	name = Gorka
+[push]
+	default = simple
+[color]
+	ui = true
+[alias]
+	clag = log --decorate --oneline --all --graph
+	clog = log --decorate --oneline --graph
+	fetchus = !git fetch && git status
