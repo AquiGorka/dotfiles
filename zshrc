@@ -25,7 +25,7 @@ dirs_to_prepend=(
   "$HOME/dotfiles/bin"
 )
 
-for dir in ${(k)dirs_to_prepend[@]}
+for dir in ${dirs_to_prepend[@]}
 do
   if [ -d ${dir} ]; then
     # If these directories exist, then prepend them to existing PATH
