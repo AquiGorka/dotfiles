@@ -1,10 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+export ZSH_CUSTOM=$ZSH/custom
 
 # theme
 ZSH_THEME="ys"
 
 # plugins (plugins can be found in ~/.oh-my-zsh/plugins/*)
+git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 plugins=(git history sudo zsh-autosuggestions)
 
@@ -35,6 +37,8 @@ done
 
 unset dirs_to_prepend
 
+# new path
 export PATH
 
+# execute
 source $ZSH/oh-my-zsh.sh
