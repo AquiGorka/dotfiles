@@ -46,5 +46,4 @@ if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
 fi
 
 # voilá
-source ~/.zshrc
 zsh
