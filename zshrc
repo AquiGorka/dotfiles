@@ -17,7 +17,6 @@ unset ZSH_PLUGINS
 plugins=(git sudo zsh-autosuggestions reminder)
 
 # User configuration
-#export PATH="/Users/Gorka/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 # Directories to be prepended to $PATH
@@ -30,7 +29,7 @@ dirs_to_prepend=(
   "/bin"
   "/usr/sbin"
   "/sbin"  
-  "$HOME/dotfiles/bin"
+  "$HOME/.dotfiles/bin"
 )
 
 for dir in ${dirs_to_prepend[@]}
@@ -45,6 +44,9 @@ unset dirs_to_prepend
 
 # new path
 export PATH
+
+# execute permissions for all dotfiles/bin
+chmod +x `find $HOME/.dotfiles/bin -type f`
 
 # execute
 source $ZSH/oh-my-zsh.sh

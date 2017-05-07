@@ -2,6 +2,7 @@
 # Setup script for debian based systems
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/AquiGorka/dotfiles/master/scripts/debian.sh)"
 # source ./debian.sh
+# chmod +x debian.sh && ./debian.sh
 
 # helpers
 check_install() {
