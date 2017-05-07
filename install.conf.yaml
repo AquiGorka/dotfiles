@@ -8,7 +8,9 @@
 - link:
     ~/.dotfiles: ''
     ~/.vimrc: vimrc
-    ~/.zshrc: zshrc
+    ~/.zshrc:
+      force: true
+      path: zshrc
     ~/.gitconfig: gitconfig
     ~/.editorconfig: editorconfig
 
