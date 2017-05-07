@@ -1,14 +1,20 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_CUSTOM=$ZSH/custom
 
 # theme
 ZSH_THEME="ys"
 
-# plugins (plugins can be found in ~/.oh-my-zsh/plugins/*)
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git history sudo zsh-autosuggestions)
+# plugins
+ZSH_PLUGINS=$ZSH/custom/plugins
+if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
+  git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
+fi
+if [[ ! -d $ZSH_PLUGINS/reminder ]]; then
+  git clone https://github.com/AlexisBRENON/oh-my-zsh-reminder $ZSH_PLUGINS/reminder
+fi
+unset ZSH_PLUGINS
+
+plugins=(git sudo zsh-autosuggestions reminder)
 
 # User configuration
 #export PATH="/Users/Gorka/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
