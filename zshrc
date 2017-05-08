@@ -50,3 +50,8 @@ chmod +x `find $HOME/.dotfiles/bin -type f`
 
 # execute
 source $ZSH/oh-my-zsh.sh
+
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
