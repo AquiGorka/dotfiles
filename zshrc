@@ -42,13 +42,13 @@ done
 
 unset dirs_to_prepend
 
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+
 # new path
 export PATH
 
 # execute
 source $ZSH/oh-my-zsh.sh
-
-if [ -f ~/.zshrc.local ]; then
-  source ~/.zshrc.local
-fi
 
