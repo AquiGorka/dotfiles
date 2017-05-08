@@ -29,12 +29,6 @@ check_install python
 check_install zsh
 check_install vim
 
-# oh-my-zsh
-if [[ ! -d ~/.oh-my-zsh/ ]]; then
-  echo "Installing Oh My Zsh"
-  sh -c "$(curl -kfsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-fi
-
 # dotfiles
 if [[ ! -d $(pwd)/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles
