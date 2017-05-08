@@ -1,14 +1,19 @@
 [user]
-	email = gorka@aquigorka.com
-	name = Gorka
+  email = gorka@aquigorka.com
+  name = Gorka
 [push]
-	default = simple
+  default = simple
 [color]
-	ui = true
-[alias]
-	clag = log --decorate --oneline --all --graph
-	clog = log --decorate --oneline --graph
-  fetchus = !git fetch && git status
-  lg = log --graph --date-order --abbrev-commit --decorate --date=relative --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+  ui = true
 [diff]
   tool = vimdiff
+[core]
+	trustctime = false
+[alias]
+  clag = log --decorate --oneline --all --graph
+  clog = log --decorate --oneline --graph
+  fetchus = !git fetch && git status
+  lg = log --graph --date-order --abbrev-commit --decorate --date=relative --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+  d = difftool -t vimdiff
+[include]
+  path = ~/.gitconfig.local
