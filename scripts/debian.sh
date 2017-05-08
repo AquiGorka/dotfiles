@@ -39,7 +39,12 @@ fi
 if [[ ! -d $(pwd)/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles
 fi
-./dotfiles/install
+
+# execute permissions for dotfiles/bin
+chmod +x `find $(pwd)/dotfiles/bin -type f`
+
+# symlinks
+./dotfiles/symlink
 
 # zsh default shell
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then

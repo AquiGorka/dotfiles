@@ -45,9 +45,6 @@ unset dirs_to_prepend
 # new path
 export PATH
 
-# execute permissions for all dotfiles/bin
-chmod +x `find $HOME/.dotfiles/bin -type f`
-
 # execute
 source $ZSH/oh-my-zsh.sh
 
