@@ -14,7 +14,7 @@ sF() {
 
   grep -lr $myParams $mySearch $myPath | while read file
   do
-    echo "\n"
+    echo ""
     echo -e "\e[34m$file ($(grep -c $myParams $mySearch $file)):\e[0m"
     grep -nh -A3 -B1 --color=always $myParams $mySearch $file
   done
