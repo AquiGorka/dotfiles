@@ -30,20 +30,21 @@ check_install zsh
 check_install vim
 
 # dotfiles
-if [[ ! -d $(pwd)/dotfiles ]]; then
-  git clone https://github.com/AquiGorka/dotfiles
+if [[ ! -d ~/dotfiles ]]; then
+  git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
 fi
 
 # execute permissions for dotfiles/bin
-chmod +x `find $(pwd)/dotfiles/bin -type f`
+chmod +x `find ~/dotfiles/bin -type f`
 
 # symlinks
-./dotfiles/symlink
+~/dotfiles/symlink
 
 # zsh default shell
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
   chsh -s $(which zsh)
+
+  # voilá
+  zsh
 fi
 
-# voilá
-zsh
