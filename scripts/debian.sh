@@ -28,6 +28,7 @@ check_install git
 check_install python
 check_install zsh
 check_install vim
+check_install unrar
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
