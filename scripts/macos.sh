@@ -37,6 +37,7 @@ check_install fortune
 check_install zsh
 check_install tree
 check_install go
+check_install unrar
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
