@@ -27,6 +27,7 @@ fi
 # the rest
 check_install python
 check_install git
+check_install node
 check_install yarn
 check_install cowthink
 check_install python3
@@ -52,6 +53,11 @@ chmod +x `find ~/dotfiles/bin -type f`
 
 # zsh default shell
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+
+  # zsh to list of shells
+  sudo sh -c "echo $(which zsh) >> /etc/shells"
+
+  # default
   chsh -s $(which zsh)
   
   # voilá
