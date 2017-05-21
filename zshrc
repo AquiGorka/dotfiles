@@ -58,3 +58,5 @@ export PATH
 # execute
 source $ZSH/oh-my-zsh.sh
 
+# alias
+alias server='python -m SimpleHTTPServer 8000'
