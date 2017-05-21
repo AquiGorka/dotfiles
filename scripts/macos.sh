@@ -25,6 +25,7 @@ if [[ ! $(which http) ]]; then
   brew install httpie
 fi
 # the rest
+check_install python
 check_install git
 check_install yarn
 check_install cowthink
