@@ -15,7 +15,13 @@ sF() {
   grep -lr $myParams $mySearch $myPath | while read file
   do
     echo ""
-    echo "\033[34m- $file ($(grep -c $myParams $mySearch $file)):\033[0m"
+    myFileHeader="\033[34m- $file ($(grep -c $myParams $mySearch $file)):\033[0m"
+    if [ $(echo -e "sF") == "sF" ]; then
+        echo -e $myFileHeader
+    else
+        echo $myFileHeader
+    fi
+
     grep -nh -A3 -B1 --color=always $myParams $mySearch $file
   done
 }
