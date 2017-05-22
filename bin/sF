@@ -16,7 +16,7 @@ sF() {
   do
     echo ""
     myFileHeader="\033[34m- $file ($(grep -c $myParams $mySearch $file)):\033[0m"
-    if [ $(echo -e "sF") == "sF" ]; then
+    if [ $(echo -e "_sF")=="_sF" ]; then
         echo -e $myFileHeader
     else
         echo $myFileHeader
