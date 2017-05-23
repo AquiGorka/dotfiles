@@ -1,3 +1,5 @@
+packadd! matchit
+
 syntax on
 colorscheme default
 
@@ -11,7 +13,6 @@ se cursorcolumn
 set wrap
 set ignorecase
 set smartcase
-
 
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
