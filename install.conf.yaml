@@ -7,12 +7,21 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.vimrc: vimrc
+    ~/.vimrc: 
+      force: true
+      path: vimrc
     ~/.zshrc:
       force: true
       path: zshrc
-    ~/.gitconfig: gitconfig
-    ~/.editorconfig: editorconfig
+    ~/.gitconfig:
+      force: true
+      path: gitconfig
+    ~/.editorconfig:
+      force: true
+      path: editorconfig
+    ~/.tmux.conf:
+      force: true
+      path: tmux.conf
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
