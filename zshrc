@@ -61,5 +61,5 @@ source $ZSH/oh-my-zsh.sh
 # alias
 alias server='function() { python -m SimpleHTTPServer ${1:-8080} }'
 alias csF='clear && sF'
-alias lsF='function() { sF $@ | less}'
-alias mkcd='function() { mkdir $@ && cd $@}'
+alias lsF='function() { sF $@ | less }'
+alias mkcd='function() { mkdir $@ && cd $@ }'
