@@ -1,7 +1,9 @@
 packadd! matchit
 
 syntax on
-colorscheme default
+"colorscheme default
+colorscheme OceanicNext
+"colorscheme solarized
 
 set encoding=utf-8
 set ts=2 sts=2 sw=2 expandtab
