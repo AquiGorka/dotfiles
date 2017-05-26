@@ -22,6 +22,7 @@
     ~/.tmux.conf:
       force: true
       path: tmux.conf
+    ~/.vim: vim
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
