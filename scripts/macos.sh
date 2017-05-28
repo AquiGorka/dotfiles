@@ -32,6 +32,7 @@ check_install yarn
 check_install cowthink
 check_install python3
 check_install node
+check_install iterm2 
 check_install tmux
 check_install vim
 check_install fortune
