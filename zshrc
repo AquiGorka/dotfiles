@@ -64,3 +64,4 @@ alias csF='clear && sF'
 alias lsF='function() { sF $@ | less }'
 alias mkcd='function() { mkdir $@ && cd $@ }'
 alias rmorig='find . -name "*.orig" -delete'
+alias cl="clear && clear"
