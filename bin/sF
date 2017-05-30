@@ -8,25 +8,25 @@
 # usage: sF "regex" path_to_a_dir [optional params: eg -i (avoid case matching)]
 
 sF() {
-  mySearch=$1
-  myPath=$2
-  myParams=$3
+  mySearch="$1"
+  myPath="$2"
+  myParams="$3"
 
-  grep -lr $myParams $mySearch $myPath | while read file
+  grep -lr "$myParams" "$mySearch" "$myPath" | while read file
   do
     echo ""
-    myFileHeader="\033[34m- $file ($(grep -c $myParams $mySearch $file)):\033[0m"
+    myFileHeader="\033[34m- $file ($(grep -c "$myParams" "$mySearch" "$file")):\033[0m"
     if [ $(echo -e "_sF")=="_sF" ]; then
         echo -e $myFileHeader
     else
         echo $myFileHeader
     fi
 
-    grep -nh -A3 -B1 --color=always $myParams $mySearch $file
+    grep -nh -A3 -B1 --color=always "$myParams" "$mySearch" "$file"
   done
 }
 
-sF $@
+sF "$@"
 
 alias csF='clear && sF'
-alias lsF='function() { sF $@ | less }'
+alias lsF='function() { sF "$@" | less }'
