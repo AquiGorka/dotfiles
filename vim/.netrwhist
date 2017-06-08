@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/cygdrive/c/dev/repository/unl-77/layers/front-layer/src/main/webapp/static-content/_versionedByRelease_'
+let g:netrw_dirhist_2='/cygdrive/c/dev/repository/unl-77/layers/front-layer/src/main/webapp/static-content/_versionedByRelease_/js'
+let g:netrw_dirhist_3='/cygdrive/c/dev/repository/unl-77/layers/front-layer/src/main/webapp/static-content/_versionedByRelease_/js/widgets'
+let g:netrw_dirhist_4='/cygdrive/c/dev/repository/unl-77/layers/front-layer/src/main/webapp/static-content/_versionedByRelease_/js'
+let g:netrw_dirhist_5='/cygdrive/c/dev/repository/unl-77/layers/front-layer/src/main/webapp/static-content/_versionedByRelease_/js/apps'
+let g:netrw_dirhist_6='/home/jorge.ludlow/dotfiles'
+let g:netrw_dirhist_7='/home/jorge.ludlow/dotfiles/scripts'

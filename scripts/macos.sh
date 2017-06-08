@@ -29,7 +29,6 @@ check_install python
 check_install git
 check_install node
 check_install yarn
-check_install cowthink
 check_install python3
 check_install node
 check_install iterm2 
@@ -39,6 +38,7 @@ check_install fortune
 check_install zsh
 check_install tree
 check_install go
+check_install hugo
 check_install unrar
 
 # dotfiles
