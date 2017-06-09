@@ -31,7 +31,6 @@ check_install node
 check_install yarn
 check_install python3
 check_install node
-check_install iterm2 
 check_install tmux
 check_install vim
 check_install fortune
@@ -43,6 +42,10 @@ check_install unrar
 
 # casks
 brew cask install google-chrome
+brew cask install flux
+brew cask install eterm2
+brew cask install vlc
+brew cask install shiftit
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
