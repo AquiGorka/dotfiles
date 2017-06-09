@@ -46,6 +46,7 @@ brew cask install flux
 brew cask install eterm2
 brew cask install vlc
 brew cask install shiftit
+brew cask install webtorrent
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
