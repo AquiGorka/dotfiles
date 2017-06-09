@@ -41,6 +41,9 @@ check_install go
 check_install hugo
 check_install unrar
 
+# casks
+brew cask install google-chrome
+
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
