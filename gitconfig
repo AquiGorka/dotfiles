@@ -8,7 +8,7 @@
 [diff]
   tool = vimdiff
 [core]
-	trustctime = false
+  trustctime = false
 [alias]
   clag = log --decorate --oneline --all --graph
   clog = log --decorate --oneline --graph
