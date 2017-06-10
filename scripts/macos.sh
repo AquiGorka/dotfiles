@@ -43,7 +43,7 @@ check_install unrar
 # casks
 brew cask install google-chrome
 brew cask install flux
-brew cask install eterm2
+brew cask install iterm2
 brew cask install vlc
 brew cask install shiftit
 brew cask install webtorrent
