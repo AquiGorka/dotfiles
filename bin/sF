@@ -27,6 +27,3 @@ sF() {
 }
 
 sF "$@"
-
-alias csF='clear && sF'
-alias lsF='function() { sF "$@" | less }'

@@ -63,3 +63,5 @@ alias server='function() { python -m SimpleHTTPServer ${1:-8080} }'
 alias mkcd='function() { mkdir $@ && cd $@ }'
 alias rmorig='find . -name "*.orig" -delete'
 alias cl="clear && clear"
+alias csF='clear && sF'
+alias lsF='function() { sF "$@" | less }'
