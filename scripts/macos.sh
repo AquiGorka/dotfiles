@@ -50,6 +50,9 @@ brew cask install webtorrent
 brew cask install balsamiq-mockups
 brew cask install karabiner-elements
 
+# yarn
+yarn global add nwb
+
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
