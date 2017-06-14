@@ -48,6 +48,7 @@ brew cask install vlc
 brew cask install shiftit
 brew cask install webtorrent
 brew cask install balsamiq-mockups
+brew cask install karabiner-elements
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
