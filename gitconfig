@@ -7,8 +7,10 @@
   ui = true
 [diff]
   tool = vimdiff
+[merge]
+  tool = vim
 [core]
-  trustctime = false
+	trustctime = false
 [alias]
   clag = log --decorate --oneline --all --graph
   clog = log --decorate --oneline --graph
