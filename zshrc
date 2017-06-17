@@ -48,6 +48,16 @@ done
 
 unset dirs_to_prepend
 
+# go
+export GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
+export GOROOT=$(go env GOROOT)
+export GOPATH=$HOME/golang
+export GOBIN=$GOPATH/bin
+path+=(
+  $GOPATH/bin
+  $GOROOT/bin
+)
+
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi

@@ -33,7 +33,6 @@ check_install python3
 check_install node
 check_install tmux
 check_install vim
-check_install fortune
 check_install zsh
 check_install tree
 check_install go
@@ -57,6 +56,9 @@ yarn global add nwb
 if [[ ! -d ~/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
 fi
+
+# vim plugin manager
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # execute permissions for dotfiles/bin
 chmod +x `find ~/dotfiles/bin -type f`

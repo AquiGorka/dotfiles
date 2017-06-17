@@ -22,6 +22,11 @@ set ignorecase
 set smartcase
 set showcmd
 
+" plugins
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go'
+call plug#end()
+
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
   source $LOCALFILE
