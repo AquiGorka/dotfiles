@@ -23,19 +23,19 @@ unset ZSH_PLUGINS
 plugins=(git sudo zsh-autosuggestions reminder)
 
 # User configuration
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+PATH=""
 
 # Directories to be prepended to $PATH
 declare -a dirs_to_prepend
 dirs_to_prepend=(
   "$HOME/bin"
-  "/usr/local/bin"
-  "/usr/local/sbin"
-  "/usr/bin"
-  "/bin"
   "/usr/sbin"
+  "/usr/bin"
   "/sbin"  
+  "/bin"
   "$HOME/.dotfiles/bin"
+  "/usr/local/sbin"
+  "/usr/local/bin"
 )
 
 for dir in ${dirs_to_prepend[@]}
@@ -51,10 +51,7 @@ unset dirs_to_prepend
 # go
 export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
-path+=(
-  $GOPATH/bin
-  $GOROOT/bin
-)
+path+=($GOPATH/bin)
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
@@ -77,12 +74,13 @@ alias lsF='function() { sF "$@" | less }'
 # custom prompt
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}λ%{$reset_color%} \
-%{$fg[cyan]%}%n \
+%(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$fg[white]%}@ \
-%{$fg[green]%}$(box_name) \
+%{$fg[green]%}%m \
 %{$fg[white]%}in \
-%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+%{$terminfo[bold]$fg[yellow]%}%~%{$reset_color%}\
 ${hg_info}\
-${git_info} \
-%{$fg[white]%}[%*]
+${git_info}\
+ \
+%{$fg[white]%}[%*] $exit_code
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
