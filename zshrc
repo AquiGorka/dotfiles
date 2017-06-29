@@ -73,7 +73,7 @@ alias lsF='function() { sF "$@" | less }'
 
 # custom prompt
 PROMPT="
-%{$terminfo[bold]$fg[blue]%}λ%{$reset_color%} \
+%{$terminfo[bold]$fg[white]%}λ%{$reset_color%} \
 %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$fg[white]%}@ \
 %{$fg[green]%}%m \
