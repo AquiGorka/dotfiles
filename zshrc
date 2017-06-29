@@ -73,3 +73,16 @@ alias rmorig='find . -name "*.orig" -delete'
 alias cl="clear && clear"
 alias csF='clear && sF'
 alias lsF='function() { sF "$@" | less }'
+
+# custom prompt
+PROMPT="
+%{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
+%{$fg[cyan]%}%n \
+%{$fg[white]%}@ \
+%{$fg[green]%}$(box_name) \
+%{$fg[white]%}in \
+%{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
+${hg_info}\
+${git_info} \
+%{$fg[white]%}[%*]
+%{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
