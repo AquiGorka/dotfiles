@@ -23,11 +23,7 @@ unset ZSH_PLUGINS
 plugins=(git sudo zsh-autosuggestions reminder)
 
 # User configuration
-PATH=""
-
-# Directories to be prepended to $PATH
-declare -a dirs_to_prepend
-dirs_to_prepend=(
+path+=(
   "$HOME/bin"
   "/usr/sbin"
   "/usr/bin"
@@ -38,16 +34,6 @@ dirs_to_prepend=(
   "/usr/local/bin"
 )
 
-for dir in ${dirs_to_prepend[@]}
-do
-  if [ -d ${dir} ]; then
-    # If these directories exist, then prepend them to existing PATH
-    PATH="${dir}:$PATH"
-  fi
-done
-
-unset dirs_to_prepend
-
 # go
 export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
@@ -57,10 +43,7 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
-# new path
-export PATH
-
-# execute
+# source 
 source $ZSH/oh-my-zsh.sh
 
 # alias
