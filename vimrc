@@ -26,6 +26,7 @@ set showcmd
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let $LOCALFILE=expand("~/.vimrc.local")
