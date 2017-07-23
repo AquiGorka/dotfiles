@@ -50,7 +50,7 @@ brew cask install balsamiq-mockups
 brew cask install karabiner-elements
 
 # yarn
-yarn global add nwb
+yarn global add npx
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
