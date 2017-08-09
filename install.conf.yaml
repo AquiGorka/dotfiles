@@ -16,6 +16,9 @@
     ~/.gitconfig:
       force: true
       path: gitconfig
+    ~/.gitignore.global:
+      force: true
+      path: gitignore.global
     ~/.editorconfig:
       force: true
       path: editorconfig

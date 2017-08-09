@@ -11,6 +11,7 @@
   tool = vim
 [core]
 	trustctime = false
+	excludesfile = ~/.gitignore.global
 [alias]
   clag = log --decorate --oneline --all --graph
   clog = log --decorate --oneline --graph
