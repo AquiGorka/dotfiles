@@ -7,6 +7,7 @@ colorscheme OceanicNext
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 
+set textwidth=80
 set encoding=utf-8
 set ts=2 sts=2 sw=2
 set backspace=indent,eol,start
