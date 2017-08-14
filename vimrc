@@ -22,15 +22,33 @@ set wrap
 set ignorecase
 set smartcase
 set showcmd
+set noshowmode
 
 " plugins
 call plug#begin('~/.vim/plugged')
+Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'tpope/vim-fugitive'
-call plug#end()
+Plug 'itchyny/lightline.vim'
+
+" plugin config
+" omnifunc
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" lightline
+let g:lightline = {
+  \ 'colorscheme': 'seoul256',
+  \ 'active': {
+  \   'left': [ ['mode'], ['filename'] ],
+  \   'right': [ ['percent', 'lineinfo'] ]
+  \ }
+\ }
 
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
   source $LOCALFILE
 endif
+
+call plug#end()
