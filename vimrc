@@ -28,6 +28,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
 
 " plugin config
 " omnifunc
@@ -46,6 +47,10 @@ let g:lightline = {
   \   'right': [ ['percent', 'lineinfo'] ]
   \ }
 \ }
+
+" nerdtree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
