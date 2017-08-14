@@ -22,7 +22,6 @@ set wrap
 set ignorecase
 set smartcase
 set showcmd
-set noshowmode
 
 " plugins
 call plug#begin('~/.vim/plugged')
@@ -38,6 +37,8 @@ set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " lightline
+set laststatus=2
+set noshowmode
 let g:lightline = {
   \ 'colorscheme': 'seoul256',
   \ 'active': {
@@ -46,6 +47,7 @@ let g:lightline = {
   \ }
 \ }
 
+" local
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
   source $LOCALFILE
