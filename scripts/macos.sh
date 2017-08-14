@@ -52,13 +52,24 @@ brew cask install karabiner-elements
 # yarn
 yarn global add npx
 
+# chrome extensions?
+# jsonview
+# react tools
+# redux dev tools
+
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
 fi
 
-# vim plugin manager
+# vim
+# plugin manager
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# tmp
+mkdir .vim/tmp
+# todo
+# install plugins
+# :PlugInstall
 
 # execute permissions for dotfiles/bin
 chmod +x `find ~/dotfiles/bin -type f`
