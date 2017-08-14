@@ -1,7 +1,7 @@
 set nocompatible
 
-syntax on
-colorscheme OceanicNext
+"syntax on
+"colorscheme OceanicNext
 "colorscheme solarized
 
 set backupdir=~/.vim/tmp
@@ -16,8 +16,8 @@ set autoindent
 set number
 set ai
 set si
-se cursorline
-se cursorcolumn
+"set cursorline
+"set cursorcolumn
 set wrap
 set ignorecase
 set smartcase
