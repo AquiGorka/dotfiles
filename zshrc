@@ -53,6 +53,7 @@ alias rmorig='find . -name "*.orig" -delete'
 alias cl="clear && clear"
 alias csF='clear && sF'
 alias lsF='function() { sF "$@" | less }'
+alias git-fix='git reset --soft HEAD~2 && git commit -m"$(git log --format=%B --reverse HEAD..HEAD@{1})"'
 
 # custom prompt
 PROMPT="
