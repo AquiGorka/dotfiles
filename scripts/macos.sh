@@ -48,6 +48,7 @@ brew cask install shiftit
 brew cask install webtorrent
 brew cask install balsamiq-mockups
 brew cask install karabiner-elements
+brew cask install alfred
 
 # yarn
 yarn global add npx
