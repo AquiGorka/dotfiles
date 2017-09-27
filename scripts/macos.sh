@@ -57,6 +57,7 @@ yarn global add npx
 # jsonview
 # react tools
 # redux dev tools
+# momemtum
 
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
