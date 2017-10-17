@@ -61,3 +61,9 @@ if filereadable($LOCALFILE)
 endif
 
 call plug#end()
+
+" js code formatters
+" prettier = gp => get pretty
+nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+" standard = gs => get standard
+nnoremap gs :silent %!standard --stdin --fix

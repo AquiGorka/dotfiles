@@ -51,7 +51,7 @@ brew cask install karabiner-elements
 brew cask install alfred
 
 # yarn
-yarn global add npx
+yarn global add npx prettier standard
 
 # chrome extensions?
 # jsonview
