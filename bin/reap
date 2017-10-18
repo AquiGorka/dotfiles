@@ -1,0 +1,29 @@
+#!/bin/bash
+# The vim reaper 0.1, June 2006
+# Scot Hacker, birdhouse.org/blog
+
+# vim has a bad habit of chewing up a ton of CPU if user
+# backgrounds it, closes their terminal window, or gets
+# disconnected from the net with a vim session open. We
+# don't want to kill currently active vim sessions, but we do want
+# to kill them if user owns the process but is not logged in.
+# Run vimreaper as root from a cron job.
+
+# Get list (as a string) of logged in users
+logged_in=$(who -q | head -1)
+
+# Get a list of vim sessions and their users. 
+# Exclude the root user and the return for the grep process itself.
+# Loop through returned lines. Test whether owner of process is currently logged in.
+# If not, reap.
+
+ps aux | grep vim | grep -v "grep" | grep -v "root" | awk '{print $1 "\t"  $2}' |
+while read line; do
+	user=$(echo "$line" | cut -f1)
+	pid=$(echo "$line" | cut -f2)
+
+	# Is this vim user logged in?
+	if  ! echo "$logged_in" | grep "$user" ; then
+		 kill -9 $pid
+	fi
+done
