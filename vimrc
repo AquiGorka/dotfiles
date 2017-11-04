@@ -22,6 +22,7 @@ set wrap
 set ignorecase
 set smartcase
 set showcmd
+set noendofline binary
 
 " plugins
 call plug#begin('~/.vim/plugged')
