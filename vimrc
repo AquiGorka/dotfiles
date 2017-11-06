@@ -30,6 +30,7 @@ Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
+Plug 'easymotion/vim-easymotion'
 
 " plugin config
 " omnifunc
