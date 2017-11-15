@@ -22,6 +22,10 @@ set ignorecase
 set smartcase
 set showcmd
 
+" Show some whitespace chars
+set list
+set listchars=tab:▸·,trail:·
+
 " plugins
 call plug#begin('~/.vim/plugged')
 Plug 'ervandew/supertab'
