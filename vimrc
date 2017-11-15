@@ -9,9 +9,8 @@ set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 
 set encoding=utf-8
-set ts=2 sts=2 sw=2
 set backspace=indent,eol,start
-set expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set autoindent
 set number
 set ai
@@ -22,7 +21,6 @@ set wrap
 set ignorecase
 set smartcase
 set showcmd
-set noendofline binary
 
 " plugins
 call plug#begin('~/.vim/plugged')
