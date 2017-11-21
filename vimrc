@@ -33,6 +33,7 @@ Plug 'fatih/vim-go'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'easymotion/vim-easymotion'
+Plug 'gabrielelana/vim-markdown'
 
 " plugin config
 " omnifunc
