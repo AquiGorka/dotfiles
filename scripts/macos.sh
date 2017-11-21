@@ -49,6 +49,7 @@ brew cask install webtorrent
 brew cask install balsamiq-mockups
 brew cask install karabiner-elements
 brew cask install alfred
+brew cask install slack
 
 # yarn
 yarn global add npx prettier standard
