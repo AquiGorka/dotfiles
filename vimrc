@@ -74,6 +74,9 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+"
+nnoremap ft :silent %s/\t/  /g
+
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
