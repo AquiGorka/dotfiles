@@ -50,6 +50,7 @@ brew cask install balsamiq-mockups
 brew cask install karabiner-elements
 brew cask install alfred
 brew cask install slack
+brew cask install gifcapture
 
 # yarn
 yarn global add npx prettier standard
