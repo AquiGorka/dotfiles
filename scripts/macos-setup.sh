@@ -124,6 +124,9 @@ defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 # the Dock to launch apps.
 defaults write com.apple.dock persistent-apps -array
 
+# Don’t animate opening applications from the Dock
+defaults write com.apple.dock launchanim -bool false
+
 # Don’t automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 
@@ -148,7 +151,10 @@ defaults write com.apple.dock showhidden -bool true
 # 10: Put display to sleep
 # 11: Launchpad
 # 12: Notification Center
-# Top left screen corner → Mission Control
+# Top left screen corner → Dashboard
+defaults write com.apple.dock wvous-tl-corner -int 7
+defaults write com.apple.dock wvous-tl-modifier -int 0
+# Top right screen corner → Mission Control
 defaults write com.apple.dock wvous-tr-corner -int 2
 defaults write com.apple.dock wvous-tr-modifier -int 0
 
