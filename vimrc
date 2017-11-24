@@ -59,8 +59,10 @@ nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 nnoremap gs :silent %!standard --stdin --fix
 " S for saving
 noremap S :update<CR>
+" Q for leaving
+noremap Q :q<CR>
 " Make exiting to normal mode a bit easier
-imap <Space><Space> <Esc>
+imap <Leader><Leader> <Esc>
 
 " plugins
 call plug#begin('~/.vim/plugged')
