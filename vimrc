@@ -8,9 +8,13 @@ set nocompatible
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 
+" always show statusline
+set laststatus=2
 set encoding=utf-8
 set backspace=indent,eol,start
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2
+" indents <Tab> as spaces
+set expandtab
 set autoindent
 set number
 set ai
@@ -21,10 +25,11 @@ set wrap
 set ignorecase
 set smartcase
 set showcmd
-
+" disable beep and flashing
+set vb t_vb=
 " Show some whitespace chars
 set list
-set listchars=tab:▸·,trail:·
+set listchars=tab:▸·,trail:·,extends:❯,precedes:❮,nbsp:×
 
 " plugins
 call plug#begin('~/.vim/plugged')
@@ -60,6 +65,10 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-t> :NERDTreeToggle<CR>
+" Hides "Press ? for help"
+let NERDTreeMinimalUI=1
+" Shows invisibles
+let g:NERDTreeShowHidden=1
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
