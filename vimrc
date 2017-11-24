@@ -8,28 +8,59 @@ set nocompatible
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
 
-" always show statusline
+" Change leader to a comma
+let g:mapleader = ","
+
+" Change the terminal's title
+set title
+" Always show statusline
 set laststatus=2
+" Set utf-8 encoding on write
 set encoding=utf-8
 set backspace=indent,eol,start
-set tabstop=2 shiftwidth=2
-" indents <Tab> as spaces
+" Indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+" Indents <Tab> as spaces
 set expandtab
 set autoindent
 set number
 set ai
 set si
-"set cursorline
-"set cursorcolumn
+" Highlight current line
+set cursorline
+" Enable word wrap
 set wrap
+" Case insensitive search
 set ignorecase
+" Smart case search if there is uppercase
 set smartcase
 set showcmd
-" disable beep and flashing
+" Disable beep and flashing
 set vb t_vb=
-" Show some whitespace chars
+" Enable listchars
 set list
+" Show some whitespace chars
 set listchars=tab:▸·,trail:·,extends:❯,precedes:❮,nbsp:×
+" Highlight matching bracket
+set showmatch
+" Auto read when a file is changed from the outside
+set autoread
+" Turn on syntax highlighting
+syntax on
+
+" ft to remove tabs
+nnoremap ft :silent %s/\t/  /g
+" js code formatters
+" prettier = gp => get pretty
+nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+" standard = gs => get standard
+nnoremap gs :silent %!standard --stdin --fix
+" S for saving
+noremap S :update<CR>
+" Make exiting to normal mode a bit easier
+imap <Space><Space> <Esc>
 
 " plugins
 call plug#begin('~/.vim/plugged')
@@ -84,8 +115,6 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
-"
-nnoremap ft :silent %s/\t/  /g
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
@@ -94,9 +123,3 @@ if filereadable($LOCALFILE)
 endif
 
 call plug#end()
-
-" js code formatters
-" prettier = gp => get pretty
-nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
-" standard = gs => get standard
-nnoremap gs :silent %!standard --stdin --fix
