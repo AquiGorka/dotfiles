@@ -1,6 +1,5 @@
 set nocompatible
 
-"syntax on
 "colorscheme OceanicNext
 "colorscheme solarized
 "colorscheme zenburn
@@ -10,7 +9,6 @@ set directory=~/.vim/tmp
 
 " Change leader to a comma
 let g:mapleader = ","
-
 " Change the terminal's title
 set title
 " Always show statusline
@@ -57,12 +55,16 @@ nnoremap ft :silent %s/\t/  /g
 nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
 " standard = gs => get standard
 nnoremap gs :silent %!standard --stdin --fix
+" prettify
+nmap <leader>p gg=GS
 " S for saving
 noremap S :update<CR>
 " Q for leaving
 noremap Q :q<CR>
 " Make exiting to normal mode a bit easier
-imap <Leader><Leader> <Esc>
+imap <leader><leader> <Esc>
+" reload vimrc
+nmap <leader>r :source ~/.vimrc<CR>
 
 " plugins
 call plug#begin('~/.vim/plugged')
