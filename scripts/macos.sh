@@ -39,7 +39,7 @@ check_install go
 check_install hugo
 check_install unrar
 
-# casks
+# casks
 brew cask install google-chrome
 brew cask install flux
 brew cask install iterm2
@@ -51,6 +51,7 @@ brew cask install karabiner-elements
 brew cask install alfred
 brew cask install slack
 brew cask install gifcapture
+brew cask install hyper
 
 # yarn
 yarn global add npx prettier standard
