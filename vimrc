@@ -2,7 +2,7 @@ set nocompatible
 
 "colorscheme OceanicNext
 "colorscheme solarized
-"colorscheme zenburn
+colorscheme zenburn
 
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
@@ -47,7 +47,13 @@ set showmatch
 set autoread
 " Turn on syntax highlighting
 syntax on
+" Blazing fast vim
+set ttimeoutlen=0
 
+"type R, then type what you're looking for, move right, and type what to replace it with
+nmap R :%s///g<LEFT><LEFT><LEFT>
+" Focus on NERDTree with the currently opened file with M
+noremap <silent> M :NERDTreeFind<CR>
 " ft to remove tabs
 nnoremap ft :silent %s/\t/  /g
 " js code formatters
@@ -65,25 +71,16 @@ noremap Q :q<CR>
 imap <leader><leader> <Esc>
 " reload vimrc
 nmap <leader>r :source ~/.vimrc<CR>
-
-" plugins
-call plug#begin('~/.vim/plugged')
-Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
-Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'easymotion/vim-easymotion'
-Plug 'gabrielelana/vim-markdown'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'airblade/vim-gitgutter'
-
-" plugin config
 " omnifunc
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Plugins
+call plug#begin('~/.vim/plugged')
+
+Plug 'itchyny/lightline.vim'
 " lightline
 set laststatus=2
 set noshowmode
@@ -95,16 +92,18 @@ let g:lightline = {
   \ }
 \ }
 
+Plug 'scrooloose/nerdtree'
 " nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-t> :NERDTreeToggle<CR>
-" Hides "Press ? for help"
+" hides "Press ? for help"
 let NERDTreeMinimalUI=1
-" Shows invisibles
+" shows invisibles
 let g:NERDTreeShowHidden=1
 
+Plug 'ctrlpvim/ctrlp.vim'
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -119,6 +118,12 @@ let g:ctrlp_custom_ignore = {
   \ 'link': 'some_bad_symbolic_links',
   \ }
 
+Plug 'ervandew/supertab'
+Plug 'fatih/vim-go'
+Plug 'easymotion/vim-easymotion'
+Plug 'gabrielelana/vim-markdown'
+Plug 'airblade/vim-gitgutter'
+Plug 'inside/vim-search-pulse'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
