@@ -26,8 +26,11 @@
       force: true
       path: tmux.conf
     ~/.vim:
-        force: true
-        path: vim
+      force: true
+      path: vim
+    ~/.hyper.js:
+      force: true
+      path: hyper.js
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
