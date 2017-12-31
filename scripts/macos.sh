@@ -53,6 +53,7 @@ brew cask install slack
 brew cask install gifcapture
 brew cask install hyper
 brew cask install firefox
+brew cask install docker
 
 # yarn
 yarn global add npx prettier standard
