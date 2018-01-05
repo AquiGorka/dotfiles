@@ -76,6 +76,10 @@ filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" highlight long lines
+match ErrorMsg '\%>120v.\+'
+" highlight trailing whitespace
+match ErrorMsg '\s\+$'
 
 " Plugins
 call plug#begin('~/.vim/plugged')
