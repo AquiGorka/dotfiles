@@ -128,6 +128,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'gabrielelana/vim-markdown'
 Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
+Plug 'scrooloose/nerdcommenter'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
