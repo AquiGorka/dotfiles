@@ -56,6 +56,8 @@ alias csF='clear && sF'
 alias lsF='function() { sF "$@" | less }'
 alias git-fix='git reset --soft HEAD~2 && git commit -m"$(git log --format=%B --reverse HEAD..HEAD@{1})"'
 alias brew-cask-upgrade='brew cask reinstall `brew cask outdated`'
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias lip="ipconfig getifaddr en0"
 
 # custom prompt
 PROMPT="
