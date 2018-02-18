@@ -2,7 +2,8 @@ set nocompatible
 
 "colorscheme OceanicNext
 "colorscheme solarized
-colorscheme zenburn
+"colorscheme zenburn
+colorscheme nord
 
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
