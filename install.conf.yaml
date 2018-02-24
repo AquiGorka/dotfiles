@@ -7,7 +7,7 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.vimrc: 
+    ~/.vimrc:
       force: true
       path: vimrc
     ~/.zshrc:
