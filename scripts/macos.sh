@@ -56,7 +56,7 @@ brew cask install firefox
 brew cask install docker
 
 # yarn
-yarn global add npx prettier standard
+yarn global add prettier standard
 
 # chrome extensions?
 # jsonview
