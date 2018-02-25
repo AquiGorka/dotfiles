@@ -27,7 +27,7 @@ path+=(
   "$HOME/bin"
   "/usr/sbin"
   "/usr/bin"
-  "/sbin"  
+  "/sbin"
   "/bin"
   "$HOME/.dotfiles/bin"
   "/usr/local/sbin"
@@ -43,8 +43,11 @@ if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
 
-# source 
+# source
 source $ZSH/oh-my-zsh.sh
+
+# terminal colors
+export TERM=xterm-256color
 
 # alias
 alias server='function() { python -m SimpleHTTPServer ${1:-8080} }'

@@ -1,13 +1,11 @@
+" Make Vim more useful
 set nocompatible
-
-"colorscheme OceanicNext
-"colorscheme solarized
-"colorscheme zenburn
-colorscheme nord
-
+" Don’t add empty newlines at the end of files
+set binary
+set noeol
+" Centralize backups, swapfiles
 set backupdir=~/.vim/tmp
 set directory=~/.vim/tmp
-
 " Change leader to a comma
 let g:mapleader = ","
 " Change the terminal's title
@@ -50,6 +48,12 @@ set autoread
 syntax on
 " Blazing fast vim
 set ttimeoutlen=0
+" Highlight searches
+set hlsearch
+" Highlight dynamically as pattern is typed
+set incsearch
+" Optimize for fast terminal connections
+set ttyfast
 
 "type R, then type what you're looking for, move right, and type what to replace it with
 nmap R :%s///g<LEFT><LEFT><LEFT>
@@ -83,7 +87,7 @@ match ErrorMsg '\%>120v.\+'
 match ErrorMsg '\s\+$'
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/bundle')
 
 Plug 'itchyny/lightline.vim'
 " lightline
@@ -131,6 +135,25 @@ Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
 Plug 'scrooloose/nerdcommenter'
 
+" colors
+set background=dark
+set t_Co=256
+set termguicolors
+
+Plug 'altercation/vim-colors-solarized'
+let g:solarized_termtrans=1
+
+Plug 'mhartington/oceanic-next'
+let g:colors_name="OceanicNext"
+let g:airline_theme='oceanicnext'
+
+Plug 'arcticicestudio/nord-vim'
+" not supported in hyper.js currently
+"let g:nord_italic = 1
+"let g:nord_italic_comments = 1
+
+Plug 'jnurmine/Zenburn'
+
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
@@ -138,3 +161,8 @@ if filereadable($LOCALFILE)
 endif
 
 call plug#end()
+
+"colorscheme OceanicNext
+"colorscheme solarized
+"colorscheme zenburn
+colorscheme nord
