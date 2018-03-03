@@ -3,5 +3,4 @@ vim/tmp
 vim/.netrwhist
 vim/.netrwhist~
 vim/bundle
-vim/plugged
 vim/autoload
