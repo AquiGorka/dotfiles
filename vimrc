@@ -57,8 +57,6 @@ set ttyfast
 
 "type R, then type what you're looking for, move right, and type what to replace it with
 nmap R :%s///g<LEFT><LEFT><LEFT>
-" Focus on NERDTree with the currently opened file with M
-noremap <silent> M :NERDTreeFind<CR>
 " ft to remove tabs
 nnoremap ft :silent %s/\t/  /g
 " js code formatters
@@ -107,10 +105,15 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 map <C-t> :NERDTreeToggle<CR>
+" Focus on NERDTree with the currently opened file with M
+noremap <silent> M :NERDTreeFind<CR>
 " hides "Press ? for help"
 let NERDTreeMinimalUI=1
 " shows invisibles
 let g:NERDTreeShowHidden=1
+" hide this files
+let NERDTreeIgnore = ['\.DS_Store$']
+
 
 Plug 'ctrlpvim/ctrlp.vim'
 " ctrlp
