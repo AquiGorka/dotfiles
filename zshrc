@@ -61,6 +61,7 @@ alias git-fix='git reset --soft HEAD~2 && git commit -m"$(git log --format=%B --
 alias brew-cask-upgrade='brew cask reinstall `brew cask outdated`'
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias lip="ipconfig getifaddr en0"
+alias fixp="export PYTHON=python2.7"
 
 # custom prompt
 PROMPT="
