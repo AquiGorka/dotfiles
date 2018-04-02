@@ -54,6 +54,7 @@ brew cask install gifcapture
 brew cask install hyper
 brew cask install firefox
 brew cask install docker
+brew cask install visual-studio-code
 
 # yarn
 yarn global add prettier standard
