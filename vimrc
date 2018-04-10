@@ -157,6 +157,8 @@ Plug 'arcticicestudio/nord-vim'
 
 Plug 'jnurmine/Zenburn'
 
+Plug 'tpope/vim-surround'
+
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
