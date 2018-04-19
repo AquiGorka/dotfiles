@@ -83,6 +83,12 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 match ErrorMsg '\%>120v.\+'
 " highlight trailing whitespace
 match ErrorMsg '\s\+$'
+" open new files right and below
+set splitbelow
+set splitright
+" tabs
+nnoremap <C-l> :tabnew<Space>
+inoremap <C-l> <Esc>:tabnew<Space>
 
 " Plugins
 call plug#begin('~/.vim/bundle')
