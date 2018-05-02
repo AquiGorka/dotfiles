@@ -38,6 +38,7 @@ check_install tree
 check_install go
 check_install hugo
 check_install unrar
+check_install ripgrep
 
 # casks
 brew cask install google-chrome
