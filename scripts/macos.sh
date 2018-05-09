@@ -39,6 +39,7 @@ check_install go
 check_install hugo
 check_install unrar
 check_install ripgrep
+check_install git-flow
 
 # casks
 brew cask install google-chrome
