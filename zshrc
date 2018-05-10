@@ -18,9 +18,12 @@ fi
 if [[ ! -d $ZSH_PLUGINS/reminder ]]; then
   git clone https://github.com/AlexisBRENON/oh-my-zsh-reminder $ZSH_PLUGINS/reminder
 fi
+if [[ ! -d $ZSH_PLUGINS/git-flow-completion ]]; then
+  git clone https://github.com/bobthecow/git-flow-completion $ZSH_PLUGINS/git-flow-completion
+fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions reminder)
+plugins=(git sudo zsh-autosuggestions reminder git-flow-completion)
 
 # User configuration
 path+=(
