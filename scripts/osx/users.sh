@@ -51,6 +51,7 @@ brew cask install hyper
 brew cask install firefox
 brew cask install docker
 brew cask install visual-studio-code
+brew cask install keyase
 
 # yarn
 yarn global add prettier standard
