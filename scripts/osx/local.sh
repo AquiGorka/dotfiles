@@ -48,6 +48,9 @@ fi
     # 7 results
     # save position when dragging
 
+# lightshot (install manually)
+  # https://itunes.apple.com/us/app/lightshot-screenshot/id526298438
+
 # vim
   # plugin manager
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
