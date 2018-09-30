@@ -11,12 +11,18 @@ scutil --set LocalHostName $@
 scutil --set HostName $@
 dscacheutil -flushcache
 
+# manually
+
 # add spanish iso to keyboard (manually)
 # git clone https://github.com/myshov/xkbswitch-macosx
 # ./xkbswitch-macosx/bin/xkbswitch -se Spanish-ISO
 
 # move focus to next window (manually)
 # https://apple.stackexchange.com/questions/280220/how-to-change-the-default-shortcut-for-move-focus-to-next-window-to-something
+
+# tap to click
+
+# ...rest
 
 # expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
