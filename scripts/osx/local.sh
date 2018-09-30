@@ -9,9 +9,10 @@ if [[ ! -d ~/dotfiles ]]; then
   git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
   # execute permissions for dotfiles/bin
   chmod +x `find ~/dotfiles/bin -type f`
-  # symlink
-  ~/dotfiles/symlink
 fi
+
+# symlink
+~/dotfiles/symlink
 
 # Dock
   # manually set min, max and magnification
