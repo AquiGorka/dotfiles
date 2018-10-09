@@ -53,18 +53,30 @@ source $ZSH/oh-my-zsh.sh
 export TERM=xterm-256color
 
 # alias
+# simple python server
 alias server='function() { python -m SimpleHTTPServer ${1:-8080} }'
+# make dir and cd into it
 alias mkcd='function() { mkdir $@ && cd $@ }'
+# find and remove .orig files
 alias rmorig='find . -name "*.orig" -delete'
+# clear, twice for fun and to avoid scroll
 alias cl="clear && clear"
+# clear and list files
 alias cls="clear && clear && ls"
+# clear and search function (although I use rg now)
 alias csF='clear && sF'
+# search with results piped to less
 alias lsF='function() { sF "$@" | less }'
-alias git-fix='git reset --soft HEAD~2 && git commit -m"$(git log --format=%B --reverse HEAD..HEAD@{1})"'
+# update outdated apps
 alias brew-cask-upgrade='brew cask reinstall `brew cask outdated`'
+# ip
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+# local ip
 alias lip="ipconfig getifaddr en0"
-alias fixp="export PYTHON=python2.7"
+# untar
+alias untar='tar -zxvf '
+# get checksum
+alias sha='shasum -a 256 '
 
 # custom prompt
 PROMPT="
