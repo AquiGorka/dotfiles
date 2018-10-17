@@ -5,34 +5,12 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# change hostname
-scutil --set ComputerName $@
-scutil --set LocalHostName $@
-scutil --set HostName $@
-dscacheutil -flushcache
-
-# manually
-
-# add spanish iso to keyboard (manually)
-# git clone https://github.com/myshov/xkbswitch-macosx
-# ./xkbswitch-macosx/bin/xkbswitch -se Spanish-ISO
-
-# move focus to next window (manually)
-# https://apple.stackexchange.com/questions/280220/how-to-change-the-default-shortcut-for-move-focus-to-next-window-to-something
-
-# tap to click
-
-# ...rest
-
 # expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 
 # disable the “Are you sure you want to open this application?” dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# reveal IP address, hostname, OS version, etc. when clicking the clock in the login window
-defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # trackpad: enable tap to click for this user and for the login screen
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
