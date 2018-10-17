@@ -61,7 +61,7 @@ nmap R :%s///g<LEFT><LEFT><LEFT>
 nnoremap ft :silent %s/\t/  /g
 " js code formatters
 " prettier = gp => get pretty
-nnoremap gp :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+nnoremap gp :Prettier<CR>
 " standard = gs => get standard
 nnoremap gs :silent %!standard --stdin --fix
 " prettify
@@ -164,6 +164,16 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'jnurmine/Zenburn'
 
 Plug 'tpope/vim-surround'
+
+Plug 'prettier/vim-prettier'
+" print semicolons
+let g:prettier#config#semi = 'false'
+" print spaces between brackets
+let g:prettier#config#bracket_spacing = 'true'
+" none|es5|all
+let g:prettier#config#trailing_comma = 'all'
+" put > on the last line instead of new line
+let g:prettier#config#jsx_bracket_same_line = 'false'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
