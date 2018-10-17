@@ -14,8 +14,24 @@ fi
 # symlink
 ~/dotfiles/symlink
 
+# Keyboard
+  # input sources
+    # add spanish iso to keyboard (manually)
+    # git clone https://github.com/myshov/xkbswitch-macosx
+    # ./xkbswitch-macosx/bin/xkbswitch -se Spanish-ISO
+
+  # shortcuts (Keyboard)
+    # move focus to next window (manually)
+    # https://apple.stackexchange.com/questions/280220/how-to-change-the-default-shortcut-for-move-focus-to-next-window-to-something
+
+# Trackpad
+  # tap to click
+
 # Dock
   # manually set min, max and magnification
+
+# Mission control
+  # Dashboard as overlay
 
 # chrome
   # offer to save passwords: no
