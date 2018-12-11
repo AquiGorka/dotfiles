@@ -20,5 +20,7 @@
   d = difftool -t vimdiff
   commend = commit --amend --no-edit
   plis = push --force-with-lease
+  pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+  pr = "!f() { git fetch -fu ${2:-origin} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
 [include]
   path = ~/.gitconfig.local
