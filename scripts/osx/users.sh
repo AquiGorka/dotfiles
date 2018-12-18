@@ -20,12 +20,7 @@ fi
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 # dependencies
-# httpie bin is http
-if [[ ! $(which http) ]]; then
-  echo "Installing httpie"
-  brew install httpie
-fi
-# the rest
+check_install httpie
 check_install tmux
 check_install vim
 check_install zsh
@@ -35,7 +30,6 @@ check_install hugo
 check_install unrar
 check_install ripgrep
 check_install git-flow
-check_install blockstack
 
 # casks
 brew cask install google-chrome
