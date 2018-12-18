@@ -42,6 +42,10 @@ export GOPATH=$HOME/golang
 export GOBIN=$GOPATH/bin
 path+=($GOPATH/bin)
 
+# fix autocompletions if using several users
+ZSH_DISABLE_COMPFIX=true
+
+# source local settings
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
@@ -91,3 +95,7 @@ ${git_info}\
  \
 $exit_code
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
+
+# nvm
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh

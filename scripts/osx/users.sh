@@ -16,6 +16,9 @@ if [[ ! $(which brew) ]]; then
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+# nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+
 # dependencies
 # httpie bin is http
 if [[ ! $(which http) ]]; then
@@ -23,8 +26,6 @@ if [[ ! $(which http) ]]; then
   brew install httpie
 fi
 # the rest
-check_install node
-check_install yarn
 check_install tmux
 check_install vim
 check_install zsh
