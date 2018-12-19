@@ -13,7 +13,7 @@ set title
 " Always show statusline
 set laststatus=2
 " Set utf-8 encoding on write
-set encoding=utf-8
+set encoding=UTF-8
 set backspace=indent,eol,start
 " Indentation
 set tabstop=2
@@ -94,55 +94,71 @@ inoremap <C-l> <Esc>:tabnew<Space>
 call plug#begin('~/.vim/bundle')
 
 Plug 'itchyny/lightline.vim'
-" lightline
-set laststatus=2
-set noshowmode
-let g:lightline = {
-  \ 'colorscheme': 'seoul256',
-  \ 'active': {
-  \   'left': [ ['mode'], ['filename'] ],
-  \   'right': [ ['percent', 'lineinfo'] ]
+  " lightline
+  set laststatus=2
+  set noshowmode
+  let g:lightline = {
+    \ 'colorscheme': 'seoul256',
+    \ 'active': {
+    \   'left': [ ['mode'], ['filename'], ['gitbranch'] ],
+    \   'right': [ ['percent', 'lineinfo'] ]
+    \ },
+    \ 'component_function': {
+      \   'gitbranch': 'fugitive#head'
+      \ },
   \ }
-\ }
 
 Plug 'scrooloose/nerdtree'
-" nerdtree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <C-t> :NERDTreeToggle<CR>
-" Focus on NERDTree with the currently opened file with M
-noremap <silent> M :NERDTreeFind<CR>
-" hides "Press ? for help"
-let NERDTreeMinimalUI=1
-" shows invisibles
-let g:NERDTreeShowHidden=1
-" hide this files
-let NERDTreeIgnore = ['\.DS_Store$']
-
+  " nerdtree
+  autocmd StdinReadPre * let s:std_in=1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  map <C-t> :NERDTreeToggle<CR>
+  " Focus on NERDTree with the currently opened file with M
+  noremap <silent> M :NERDTreeFind<CR>
+  " hides "Press ? for help"
+  let NERDTreeMinimalUI=1
+  " shows invisibles
+  let g:NERDTreeShowHidden=1
+  " hide this files
+  let NERDTreeIgnore = ['\.DS_Store$']
 
 Plug 'ctrlpvim/ctrlp.vim'
-" ctrlp
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-let g:ctrlp_user_command = 'find %s -type f'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(exe|so|dll)$',
-  \ 'link': 'some_bad_symbolic_links',
-  \ }
+  " ctrlp
+  let g:ctrlp_map = '<c-p>'
+  let g:ctrlp_cmd = 'CtrlP'
+  let g:ctrlp_working_path_mode = 'ra'
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+  let g:ctrlp_user_command = 'find %s -type f'
+  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+  let g:ctrlp_custom_ignore = {
+    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+    \ 'file': '\v\.(exe|so|dll)$',
+    \ 'link': 'some_bad_symbolic_links',
+    \ }
+
+Plug 'scrooloose/nerdcommenter'
+  " mappings
+  " https://github.com/scrooloose/nerdcommenter#default-mappings
+
+Plug 'prettier/vim-prettier'
+  " print semicolons
+  let g:prettier#config#semi = 'false'
+  " print spaces between brackets
+  let g:prettier#config#bracket_spacing = 'true'
+  " none|es5|all
+  let g:prettier#config#trailing_comma = 'all'
+  " put > on the last line instead of new line
+  let g:prettier#config#jsx_bracket_same_line = 'false'
 
 Plug 'ervandew/supertab'
 Plug 'fatih/vim-go'
-Plug 'easymotion/vim-easymotion'
 Plug 'gabrielelana/vim-markdown'
 Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
-Plug 'scrooloose/nerdcommenter'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 
 " colors
 set background=dark
@@ -162,18 +178,6 @@ Plug 'arcticicestudio/nord-vim'
 "let g:nord_italic_comments = 1
 
 Plug 'jnurmine/Zenburn'
-
-Plug 'tpope/vim-surround'
-
-Plug 'prettier/vim-prettier'
-" print semicolons
-let g:prettier#config#semi = 'false'
-" print spaces between brackets
-let g:prettier#config#bracket_spacing = 'true'
-" none|es5|all
-let g:prettier#config#trailing_comma = 'all'
-" put > on the last line instead of new line
-let g:prettier#config#jsx_bracket_same_line = 'false'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
