@@ -122,6 +122,8 @@ Plug 'scrooloose/nerdtree'
   let g:NERDTreeShowHidden=1
   " hide this files
   let NERDTreeIgnore = ['\.DS_Store$']
+  " https://www.reddit.com/r/vim/comments/a4yzyt/g_characters_prefixing_directory_and_file_names/
+  let g:NERDTreeNodeDelimiter = "\u00a0"
 
 Plug 'ctrlpvim/ctrlp.vim'
   " ctrlp
