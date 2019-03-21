@@ -89,6 +89,9 @@ set splitright
 " tabs
 nnoremap <C-l> :tabnew<Space>
 inoremap <C-l> <Esc>:tabnew<Space>
+" control t + arrows to move
+map <C-d><left> :tabp<cr>
+map <C-d><right> :tabn<cr>
 
 " Plugins
 call plug#begin('~/.vim/bundle')
