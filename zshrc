@@ -1,6 +1,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# tmux fix nvm
+# https://superuser.com/questions/544989/does-tmux-sort-the-path-variable/583502#583502
+if [ -f /etc/profile ]; then
+    PATH=""
+    source /etc/profile
+fi
+
 # oh-my-zsh
 if [[ ! -d $ZSH ]]; then
   echo "Installing Oh My Zsh"
