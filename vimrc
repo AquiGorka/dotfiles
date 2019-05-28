@@ -123,7 +123,7 @@ Plug 'scrooloose/nerdtree'
   let NERDTreeMinimalUI=1
   " shows invisibles
   let g:NERDTreeShowHidden=1
-  " hide this files
+  " hide these files
   let NERDTreeIgnore = ['\.DS_Store$']
   " https://www.reddit.com/r/vim/comments/a4yzyt/g_characters_prefixing_directory_and_file_names/
   let g:NERDTreeNodeDelimiter = "\u00a0"
