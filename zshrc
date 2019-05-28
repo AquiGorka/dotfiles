@@ -88,6 +88,40 @@ alias lip="ipconfig getifaddr en0"
 alias untar='tar -zxvf '
 # get checksum
 alias sha='shasum -a 256 '
+# recent git 3 branches
+alias recent='npx git-recent -n 3'
+# open repo url
+alias open='npx git-open'
+# git rebase
+alias gr='git rebase'
+# git rebase interactive
+alias gri='gr -i'
+# git rebase origin/master
+alias grm='gr origin/master'
+# git fetchus (fetch + status)
+alias gf='git fetchus'
+# git checkout
+alias gc='git checkout'
+# git checkout -b
+alias gcb='gc -b'
+# git push
+alias gp='git push'
+# git plis
+alias gpl='git plis'
+# git clog
+alias gl='git clog'
+# git status
+alias gs='git status'
+# git diff
+alias gd='git diff'
+# git add
+alias ga='git add'
+# git add -p
+alias gap='git add -p'
+# git commit
+alias gm='git commit'
+# git commit -m
+alias gmm="git commit -m"
 
 # custom prompt
 PROMPT="
