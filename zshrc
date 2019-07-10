@@ -30,7 +30,7 @@ if [[ ! -d $ZSH_PLUGINS/git-flow-completion ]]; then
 fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions reminder git-flow-completion)
+plugins=(git sudo zsh-autosuggestions reminder git-flow-completion fzf)
 
 # User configuration
 path+=(
