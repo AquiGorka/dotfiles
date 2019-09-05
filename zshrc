@@ -122,6 +122,16 @@ alias gap='git add -p'
 alias gm='git commit'
 # git commit -m
 alias gmm="git commit -m"
+# npm i
+alias ni="npm i"
+# npm start
+alias ns="npm start"
+# npm i + npm start
+alias nis="ni && ns"
+# git stash
+alias gst="git stash"
+# git stash pop
+alias gsp="git stash pop"
 
 # custom prompt
 PROMPT="
