@@ -92,6 +92,18 @@ inoremap <C-l> <Esc>:tabnew<Space>
 " control t + arrows to move
 map <C-d><left> :tabp<cr>
 map <C-d><right> :tabn<cr>
+" space + s => search
+noremap <space>s /
+" copy selected text to clipboard
+vmap <space>c :w !pbcopy<cr><cr>
+" duplicate line
+noremap <space>d yyp
+" find word
+noremap <space>f *N
+" noh
+noremap <space>m :noh<cr>
+" replace current word
+noremap <space>r :%s/\<<C-r><C-w>\>//g<left><left>
 
 " Plugins
 call plug#begin('~/.vim/bundle')
