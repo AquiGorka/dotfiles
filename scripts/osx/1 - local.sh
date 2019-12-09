@@ -3,6 +3,23 @@
 # assumes users.sh has been executed
 # sh -c "$(curl -fsSL https://raw.githubusercontent.com/AquiGorka/dotfiles/master/scripts/osx/local.sh)"
 
+# wipe all (default) app icons from the Dock
+defaults write com.apple.dock persistent-apps -array
+# don’t automatically rearrange Spaces based on most recent use
+defaults write com.apple.dock mru-spaces -bool false
+# restart dock
+killall Dock &> /dev/null
+
+# kitty
+git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
+
+# vim
+  # plugin manager
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  # tmp
+  mkdir ~/.vim/tmp
+  # install plugins
+  vim +PlugInstall +qall
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
   # clone
@@ -21,7 +38,7 @@ fi
     # ./xkbswitch-macosx/bin/xkbswitch -se Spanish-ISO
 
   # shortcuts (Keyboard)
-    # move focus to next window (manually)
+    # move focus to next window (manually in shortcuts > keyboard)
     # https://apple.stackexchange.com/questions/280220/how-to-change-the-default-shortcut-for-move-focus-to-next-window-to-something
 
 # Trackpad
@@ -29,16 +46,19 @@ fi
 
 # Dock
   # manually set min, max and magnification
+  # automatically hide and show the dock
+  # show recent applications in dock
 
 # Mission control
   # Dashboard as overlay
 
 # chrome
   # offer to save passwords: no
+  # offer to translate: no
   # disable sync and automatic login
   # https://blog.ideasynthesis.com/2018/09/24/Disable-Google-Chrome-Sign-In-and-Sync/
   # defaults write com.google.Chrome SyncDisabled -bool true
-  # defaults write com.google.Chrome RestrictSigninToPattern -string ".*@example.com"
+  # defaults write com.google.Chrome RestrictSigninToPattern -string ".*@google.com"
 
 # chrome extensions
   # no way to do this automatically
@@ -59,10 +79,11 @@ fi
   # in the meantime, manually:
   # caps_lock to control
   # right_command to delete_forward
+  # fn to esc
 
 # alfred
   # manually:
-  # disable spotlight shortcut
+  # disable spotlight shortcut search spotlight using spotlight > shortcuts
   # frosty teal theme
   # theme options
     # hide hat
@@ -74,13 +95,8 @@ fi
 # lightshot (install manually)
   # https://itunes.apple.com/us/app/lightshot-screenshot/id526298438
 
-# vim
-  # plugin manager
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  # tmp
-  mkdir ~/.vim/tmp
-  # install plugins
-  vim +PlugInstall +qall
+# nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 
 # zsh
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
