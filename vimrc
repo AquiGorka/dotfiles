@@ -169,7 +169,7 @@ Plug 'prettier/vim-prettier'
   " put > on the last line instead of new line
   let g:prettier#config#jsx_bracket_same_line = 'false'
 
-"Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 Plug 'gabrielelana/vim-markdown'
 Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
