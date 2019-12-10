@@ -169,32 +169,17 @@ Plug 'prettier/vim-prettier'
   " put > on the last line instead of new line
   let g:prettier#config#jsx_bracket_same_line = 'false'
 
-Plug 'ervandew/supertab'
-Plug 'fatih/vim-go'
+"Plug 'ervandew/supertab'
 Plug 'gabrielelana/vim-markdown'
 Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-
-" colors
-set background=dark
-set t_Co=256
-set termguicolors
-
-Plug 'altercation/vim-colors-solarized'
-let g:solarized_termtrans=1
-
 Plug 'mhartington/oceanic-next'
-let g:colors_name="OceanicNext"
-let g:airline_theme='oceanicnext'
+  let g:colors_name="OceanicNext"
+  let g:airline_theme='oceanicnext'
 
 Plug 'arcticicestudio/nord-vim'
-" not supported in hyper.js currently
-"let g:nord_italic = 1
-"let g:nord_italic_comments = 1
-
-Plug 'jnurmine/Zenburn'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
@@ -205,6 +190,4 @@ endif
 call plug#end()
 
 "colorscheme OceanicNext
-"colorscheme solarized
-"colorscheme zenburn
 colorscheme nord
