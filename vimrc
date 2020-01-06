@@ -55,7 +55,7 @@ set incsearch
 " Optimize for fast terminal connections
 set ttyfast
 " Mouse clicks
-set mouse=a
+set mouse=i
 
 "type R, then type what you're looking for, move right, and type what to replace it with
 nmap R :%s///g<LEFT><LEFT><LEFT>
