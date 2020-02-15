@@ -48,3 +48,4 @@ brew cask install firefox
 brew cask install docker
 brew cask install visual-studio-code
 brew cask install keybase
+brew cask install kitty
