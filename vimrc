@@ -94,9 +94,9 @@ inoremap <C-l> <Esc>:tabnew<Space>
 " control + d + arrows to move from tab to tab horizontally
 map <C-d><left> :tabp<cr>
 map <C-d><right> :tabn<cr>
-" control + w + arrows to re-arrange tab hotizontally
-map <C-w><left> :tabm -1<cr>
-map <C-w><right> :tabm +1<cr>
+" control + e + arrows to re-arrange tab hotizontally
+map <C-e><left> :tabm -1<cr>
+map <C-e><right> :tabm +1<cr>
 
 " space + s => search
 noremap <space>s /
