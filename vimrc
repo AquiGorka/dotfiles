@@ -111,6 +111,9 @@ noremap <space>m :noh<cr>
 " replace current word
 noremap <space>r :%s/\<<C-r><C-w>\>//g<left><left>
 
+" delete word
+imap <SPACE><BS> <C-W>
+
 " Plugins
 call plug#begin('~/.vim/bundle')
 
