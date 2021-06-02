@@ -190,6 +190,9 @@ Plug 'mhartington/oceanic-next'
 
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'w0rp/ale'
+  let g:ale_linters = {'javascript': ['eslint']}
+
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
 if filereadable($LOCALFILE)
