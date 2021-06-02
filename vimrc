@@ -200,3 +200,7 @@ call plug#end()
 
 "colorscheme OceanicNext
 colorscheme nord
+
+" comments
+" http://guns.github.io/xterm-color-table.vim/images/xterm-color-table.png
+hi Comment ctermfg=147
