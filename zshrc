@@ -132,6 +132,8 @@ alias nis="ni && ns"
 alias gst="git stash"
 # git stash pop
 alias gsp="git stash pop"
+# see changes for a given commit
+function gdf () { git diff $1~ $1 }
 
 # custom prompt
 PROMPT="
