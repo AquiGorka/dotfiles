@@ -165,6 +165,7 @@ Plug 'ctrlpvim/ctrlp.vim'
     \ }
 
 Plug 'scrooloose/nerdcommenter'
+  let g:NERDSpaceDelims = 1
   " mappings
   " https://github.com/scrooloose/nerdcommenter#default-mappings
 
