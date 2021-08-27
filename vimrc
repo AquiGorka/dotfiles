@@ -110,9 +110,10 @@ noremap <space>f *N
 noremap <space>m :noh<cr>
 " replace current word
 noremap <space>r :%s/\<<C-r><C-w>\>//g<left><left>
-
 " delete word
 imap <SPACE><BS> <C-W>
+" disable swap file
+set noswapfile
 
 " Plugins
 call plug#begin('~/.vim/bundle')
@@ -122,14 +123,11 @@ Plug 'itchyny/lightline.vim'
   set laststatus=2
   set noshowmode
   let g:lightline = {
-    \ 'colorscheme': 'seoul256',
+    \ 'colorscheme': 'nord',
     \ 'active': {
-    \   'left': [ ['mode'], ['filename'], ['gitbranch'] ],
+    \   'left': [ ['mode'], ['filename'] ],
     \   'right': [ ['percent', 'lineinfo'] ]
     \ },
-    \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
   \ }
 
 Plug 'scrooloose/nerdtree'
@@ -148,6 +146,8 @@ Plug 'scrooloose/nerdtree'
   let NERDTreeIgnore = ['\.DS_Store$']
   " https://www.reddit.com/r/vim/comments/a4yzyt/g_characters_prefixing_directory_and_file_names/
   let g:NERDTreeNodeDelimiter = "\u00a0"
+  " show on the right
+  let g:NERDTreeWinPos = "right"
 
 Plug 'ctrlpvim/ctrlp.vim'
   " ctrlp
@@ -191,8 +191,11 @@ Plug 'mhartington/oceanic-next'
 
 Plug 'arcticicestudio/nord-vim'
 
+Plug 'leafgarland/typescript-vim'
+
 Plug 'w0rp/ale'
-  let g:ale_linters = {'javascript': ['eslint']}
+  let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
+  let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
