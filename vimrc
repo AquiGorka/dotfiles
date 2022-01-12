@@ -61,13 +61,6 @@ set mouse=i
 nmap R :%s///g<LEFT><LEFT><LEFT>
 " ft to remove tabs
 nnoremap ft :silent %s/\t/  /g
-" js code formatters
-" prettier = gp => get pretty
-nnoremap gp :Prettier<CR>
-" standard = gs => get standard
-nnoremap gs :silent %!standard --stdin --fix
-" prettify
-nmap <leader>p gg=GS
 " S for saving
 noremap S :update<CR>
 " Q for leaving
@@ -90,7 +83,6 @@ set splitbelow
 set splitright
 " tabs
 nnoremap <C-l> :tabnew<Space>
-inoremap <C-l> <Esc>:tabnew<Space>
 " control + d + arrows to move from tab to tab horizontally
 map <C-d><left> :tabp<cr>
 map <C-d><right> :tabn<cr>
@@ -114,6 +106,16 @@ noremap <space>r :%s/\<<C-r><C-w>\>//g<left><left>
 imap <SPACE><BS> <C-W>
 " disable swap file
 set noswapfile
+" Buffer jumps
+ " previous
+ nmap <silent> ss<left> :bp<CR>
+ " next
+ nmap <silent> ss<right> :bp<CR>
+" open new tab with buffer
+ " :tabnew | buffer
+ " C-P | buffer
+" open current buffer in tab
+nmap <silent> ss<Space> :tab sball<CR>
 
 " Plugins
 call plug#begin('~/.vim/bundle')
@@ -121,6 +123,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'itchyny/lightline.vim'
   " lightline
   set laststatus=2
+  " By the way, -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
   set noshowmode
   let g:lightline = {
     \ 'colorscheme': 'nord',
@@ -132,13 +135,16 @@ Plug 'itchyny/lightline.vim'
 
 Plug 'scrooloose/nerdtree'
   " nerdtree
+  " Start NERDTree when Vim is started without file arguments.
   autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-  map <C-t> :NERDTreeToggle<CR>
+  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+  " Exit Vim if NERDTree is the only window remaining in the only tab.
+  autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+  " control o to toggle nerd tree
+  map <C-o> :NERDTreeToggle<CR>
   " Focus on NERDTree with the currently opened file with M
   noremap <silent> M :NERDTreeFind<CR>
-  " hides "Press ? for help"
+  " hides 'Press ? for help'
   let NERDTreeMinimalUI=1
   " shows invisibles
   let g:NERDTreeShowHidden=1
@@ -148,21 +154,12 @@ Plug 'scrooloose/nerdtree'
   let g:NERDTreeNodeDelimiter = "\u00a0"
   " show on the right
   let g:NERDTreeWinPos = "right"
+" Shows Git status flags for files and folders in NERDTree.
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'ctrlpvim/ctrlp.vim'
-  " ctrlp
-  let g:ctrlp_map = '<c-p>'
-  let g:ctrlp_cmd = 'CtrlP'
-  let g:ctrlp_working_path_mode = 'ra'
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-  let g:ctrlp_user_command = 'find %s -type f'
-  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-  let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-    \ 'file': '\v\.(exe|so|dll)$',
-    \ 'link': 'some_bad_symbolic_links',
-    \ }
+  " invoke with control p
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
 
 Plug 'scrooloose/nerdcommenter'
   let g:NERDSpaceDelims = 1
@@ -179,23 +176,20 @@ Plug 'prettier/vim-prettier'
   " put > on the last line instead of new line
   let g:prettier#config#jsx_bracket_same_line = 'false'
 
+Plug 'airblade/vim-gitgutter'
+  " navigate between hunks
+  nmap zk <Plug>(GitGutterNextHunk)
+  nmap zj <Plug>(GitGutterPrevHunk)
+
+" Plug 'w0rp/ale'
+   " let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
+   " let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
+
 Plug 'ervandew/supertab'
 Plug 'gabrielelana/vim-markdown'
-Plug 'airblade/vim-gitgutter'
 Plug 'inside/vim-search-pulse'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-Plug 'mhartington/oceanic-next'
-  let g:colors_name="OceanicNext"
-  let g:airline_theme='oceanicnext'
-
 Plug 'arcticicestudio/nord-vim'
-
 Plug 'leafgarland/typescript-vim'
-
-Plug 'w0rp/ale'
-  let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
-  let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
@@ -205,7 +199,6 @@ endif
 
 call plug#end()
 
-"colorscheme OceanicNext
 colorscheme nord
 
 " comments
