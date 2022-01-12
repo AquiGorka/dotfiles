@@ -26,15 +26,12 @@ check_install vim
 check_install zsh
 check_install tree
 check_install go
-check_install hugo
 check_install unrar
 check_install ripgrep
-check_install git-flow
 check_install fzf
 
 # casks
 brew cask install google-chrome
-brew cask install flux
 brew cask install vlc
 brew cask install shiftit
 brew cask install webtorrent
@@ -43,9 +40,8 @@ brew cask install karabiner-elements
 brew cask install alfred
 brew cask install slack
 brew cask install gifcapture
-brew cask install hyper
 brew cask install firefox
 brew cask install docker
 brew cask install visual-studio-code
-brew cask install keybase
 brew cask install kitty
+brew cask install htop
