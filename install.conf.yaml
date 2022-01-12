@@ -25,9 +25,6 @@
     ~/.vim:
       force: true
       path: vim
-    ~/.hyper.js:
-      force: true
-      path: hyper.js
     ~/.config/kitty/kitty.conf:
       force: true
       path: kitty.conf
