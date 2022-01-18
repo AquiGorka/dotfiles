@@ -108,14 +108,25 @@ imap <SPACE><BS> <C-W>
 set noswapfile
 " Buffer jumps
  " previous
- nmap <silent> ss<left> :bp<CR>
+ nmap ss<left> :bp<CR>
  " next
- nmap <silent> ss<right> :bp<CR>
+ nmap ss<right> :bp<CR>
 " open new tab with buffer
  " :tabnew | buffer
  " C-P | buffer
 " open current buffer in tab
-nmap <silent> ss<Space> :tab sball<CR>
+nmap ss<Space> :tab sball<CR>
+" move lines
+  " down
+  nmap fj :m +1<CR>
+  " up
+  nmap fk :m -2<CR>
+" join lines
+" Number of lines + shift + j
+" scroll cursor
+  " z<CR> puts current line to top of screen
+  " z. puts current line to center of screen
+  " z- puts current line to bottom of screen
 
 " Plugins
 call plug#begin('~/.vim/bundle')
@@ -180,10 +191,6 @@ Plug 'airblade/vim-gitgutter'
   " navigate between hunks
   nmap zk <Plug>(GitGutterNextHunk)
   nmap zj <Plug>(GitGutterPrevHunk)
-
-" Plug 'w0rp/ale'
-   " let g:ale_fixers = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
-   " let g:ale_linters = { 'javascript': ['eslint'], 'typescript': ['eslint'] }
 
 Plug 'ervandew/supertab'
 Plug 'gabrielelana/vim-markdown'
