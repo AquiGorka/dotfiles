@@ -186,8 +186,8 @@ Plug 'prettier/vim-prettier'
   let g:prettier#config#trailing_comma = 'all'
   " put > on the last line instead of new line
   let g:prettier#config#jsx_bracket_same_line = 'false'
-" exit insert, format and save
-map <leader><leader><leader> <ESC>:Prettier<CR> :update<CR>
+  " format and save
+  nmap <leader>m :Prettier<CR> :update<CR>
 
 Plug 'airblade/vim-gitgutter'
   " navigate between hunks
