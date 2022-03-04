@@ -50,7 +50,8 @@ fi
   # show recent applications in dock
 
 # Mission control
-  # Dashboard as overlay
+  # hot corners remove notes
+  # top right notifications
 
 # chrome
   # offer to save passwords: no
@@ -66,7 +67,6 @@ fi
   # manually install:
     # jsonview: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=en
     # momemtum: https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca
-    # supergenpass: https://chriszarate.github.io/supergenpass/
     # grammarly: https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen/related?hl=en
     # videostream: https://chrome.google.com/webstore/detail/videostream-for-google-ch/cnciopoikihiagdjbjpnocolokfelagl?hl=en
     # whatfont: https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm/related?hl=en
