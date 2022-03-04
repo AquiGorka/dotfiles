@@ -13,7 +13,7 @@ check_install() {
 # homebrew
 if [[ ! $(which brew) ]]; then
   echo "Installing hombrew"
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # nvm
@@ -26,22 +26,18 @@ check_install vim
 check_install zsh
 check_install tree
 check_install go
-check_install unrar
 check_install ripgrep
 check_install fzf
 
 # casks
-brew cask install google-chrome
-brew cask install vlc
-brew cask install shiftit
-brew cask install webtorrent
-brew cask install balsamiq-mockups
-brew cask install karabiner-elements
-brew cask install alfred
-brew cask install slack
-brew cask install gifcapture
-brew cask install firefox
-brew cask install docker
-brew cask install visual-studio-code
-brew cask install kitty
-brew cask install htop
+brew install vlc --cask
+brew install rectangle --cask
+brew install webtorrent --cask
+brew install karabiner-elements --cask
+brew install alfred --cask
+brew install slack --cask
+brew install gifcapture --cask
+brew install firefox --cask
+brew install docker --cask
+brew install visual-studio-code --cask
+brew install kitty --cask
