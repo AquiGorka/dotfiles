@@ -42,6 +42,7 @@ path+=(
   "$HOME/.dotfiles/bin"
   "/usr/local/sbin"
   "/usr/local/bin"
+  "/opt/homebrew/bin"
 )
 
 # go
@@ -155,8 +156,8 @@ source ~/.nvm/nvm.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # use homebrew vim instead of macos
-alias vi=/usr/local/bin/vim
-alias vim=/usr/local/bin/vim
+alias vi=/opt/homebrew/bin/vim
+alias vim=/opt/homebrew/bin/vim
 
 # automatically set nvm version if .nvmrc
 # https://github.com/nvm-sh/nvm#zsh
