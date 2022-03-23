@@ -12,6 +12,7 @@
 [core]
   trustctime = false
   excludesfile = ~/.gitignore.global
+  editor = /opt/homebrew/bin/vim
 [alias]
   clag = log --decorate --oneline --all --graph
   clog = log --decorate --oneline --graph
