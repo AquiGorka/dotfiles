@@ -20,29 +20,24 @@ ZSH_THEME="ys"
 # plugins
 ZSH_PLUGINS=$ZSH/custom/plugins
 if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
-  git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
-fi
-if [[ ! -d $ZSH_PLUGINS/reminder ]]; then
-  git clone https://github.com/AlexisBRENON/oh-my-zsh-reminder $ZSH_PLUGINS/reminder
-fi
-if [[ ! -d $ZSH_PLUGINS/git-flow-completion ]]; then
-  git clone https://github.com/bobthecow/git-flow-completion $ZSH_PLUGINS/git-flow-completion
+  git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_PLUGINS/zsh-autosuggestions
 fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions reminder git-flow-completion fzf)
+plugins=(git sudo zsh-autosuggestions fzf)
 
 # User configuration
-path+=(
+path=(
+  "$HOME/.dotfiles/bin"
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
   "$HOME/bin"
-  "/usr/sbin"
-  "/usr/bin"
   "/sbin"
   "/bin"
-  "$HOME/.dotfiles/bin"
+  "/usr/sbin"
+  "/usr/bin"
   "/usr/local/sbin"
   "/usr/local/bin"
-  "/opt/homebrew/bin"
 )
 
 # go
