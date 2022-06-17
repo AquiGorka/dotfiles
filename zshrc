@@ -48,13 +48,13 @@ path+=($GOPATH/bin)
 # fix autocompletions if using several users
 ZSH_DISABLE_COMPFIX=true
 
+# source
+source $ZSH/oh-my-zsh.sh
+
 # source local settings
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
-
-# source
-source $ZSH/oh-my-zsh.sh
 
 # terminal colors
 export TERM=xterm-256color
