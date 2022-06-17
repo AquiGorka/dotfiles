@@ -130,6 +130,8 @@ alias gst="git stash"
 alias gsp="git stash pop"
 # see changes for a given commit
 function gdf () { git diff $1~ $1 }
+# better git blame
+function gbb() { git blame -s $1 | awk '{print $1,$3,$4}' | less}
 
 # custom prompt
 PROMPT="
