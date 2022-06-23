@@ -132,19 +132,19 @@ fun! GitCommand(command)
   silent! !clear
   exec "!git " . a:command . " %"
 endfun
-" -- git diff for current file
-map <leader>d :call GitCommand("diff") <CR>
-" -- git log for current file
-map <leader>l :call GitCommand("log -p") <CR>
-" -- git blame for current file
-map <leader>b :call GitCommand("blame -c") <CR>
+" " -- git diff for current file
+" map <leader>d :call GitCommand("diff") <CR>
+" " -- git log for current file
+" map <leader>l :call GitCommand("log -p") <CR>
+" " -- git blame for current file
+" map <leader>b :call GitCommand("blame -c") <CR>
 " better git blame
 fun! GitBetterBlame()
     exec "! git blame -s % | awk '{print $1, $3, $4}' | less"
 endfun
-map <leader>k :call GitBetterBlame() <CR>
+map <leader>b :call GitBetterBlame() <CR>
 " prepare things for git log
-map <leader>p :! git log -p 
+map <leader>l :! git log -p 
 
 " Plugins
 call plug#begin('~/.vim/bundle')
