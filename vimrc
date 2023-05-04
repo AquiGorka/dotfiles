@@ -232,3 +232,18 @@ colorscheme nord
 " comments
 " http://guns.github.io/xterm-color-table.vim/images/xterm-color-table.png
 hi Comment ctermfg=147
+hi NonText ctermfg=147
+
+" https://www.reddit.com/r/vim/comments/3duumy/changing_markdown_syntax_colors/
+function! GetSyntaxID()
+    return synID(line('.'), col('.'), 1)
+endfunction
+
+function! GetSyntaxParentID()
+    return synIDtrans(GetSyntaxID())
+endfunction
+
+function! GetSyntax()
+    echo synIDattr(GetSyntaxID(), 'name')
+    exec "hi ".synIDattr(GetSyntaxParentID(), 'name')
+endfunction
