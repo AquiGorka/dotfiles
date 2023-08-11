@@ -3,6 +3,7 @@
 # usage:
 #   git clone https://github.com/AquiGorka/dotfiles
 #   ./dotfiles/scripts/osx/new-user.sh
+#   you may have to run this a couple of times? (TODO: figure out why, it seems this script stops after installing omz)
 
 # wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
@@ -17,14 +18,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # kitty
 git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
 
-# vim
-  # plugin manager
-  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  # tmp
-  mkdir ~/.vim/tmp
-  # install plugins
-  vim +PlugInstall +qall
-
 # dotfiles
 if [[ ! -d ~/dotfiles ]]; then
   # clone
@@ -35,6 +28,14 @@ fi
 
 # symlink
 ~/dotfiles/symlink
+
+# vim
+  # plugin manager
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  # tmp
+  mkdir ~/.vim/tmp
+  # install plugins
+  vim +PlugInstall +qall
 
 # Keyboard
   # input sources
@@ -48,6 +49,9 @@ fi
 
 # Trackpad
   # tap to click
+
+# Rectangle
+  # Update max screen to cmd + enter
 
 # Dock
   # manually set min, max and magnification
@@ -95,6 +99,7 @@ fi
 
 # nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+nvm install node
 
 # zsh
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
