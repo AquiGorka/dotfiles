@@ -127,27 +127,15 @@ nmap ss<Space> :tab sball<CR>
   " z<CR> puts current line to top of screen
   " z. puts current line to center of screen
   " z- puts current line to bottom of screen
-" -- git command on current file
-fun! GitCommand(command)
-  silent! !clear
-  exec "!git " . a:command . " %"
-endfun
-" " -- git diff for current file
-" map <leader>d :call GitCommand("diff") <CR>
-" " -- git log for current file
-" map <leader>l :call GitCommand("log -p") <CR>
-" " -- git blame for current file
-" map <leader>b :call GitCommand("blame -c") <CR>
-" better git blame
-fun! GitBetterBlame()
-    exec "! git blame -s % | awk '{print $1, $3, $4}' | less"
-endfun
-map <leader>b :call GitBetterBlame() <CR>
-" prepare things for git log
+" prepare things for git log (space is there on purpose)
 map <leader>l :! git log -p 
 
 " Plugins
 call plug#begin('~/.vim/bundle')
+
+Plug 'zivyangll/git-blame.vim'
+  " <leader>b shows commit message in status line (you can grab commit hash and see full commit with <leader>l + paste commit hash
+  nnoremap <Leader>b :<C-u>call gitblame#echo()<CR>
 
 Plug 'itchyny/lightline.vim'
   " lightline
