@@ -34,7 +34,7 @@ fi
 # nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
-# dependencies
+# cli tools
 check_install httpie
 check_install tmux
 check_install vim
@@ -44,7 +44,7 @@ check_install go
 check_install ripgrep
 check_install fzf
 
-# casks
+# brew
 brew install rectangle
 brew install webtorrent
 brew install karabiner-elements
@@ -55,3 +55,4 @@ brew install firefox
 brew install docker
 brew install visual-studio-code
 brew install kitty
+brew install fd
