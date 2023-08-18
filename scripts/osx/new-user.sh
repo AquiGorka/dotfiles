@@ -18,13 +18,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # kitty
 git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
 
-# dotfiles
-if [[ ! -d ~/dotfiles ]]; then
-  # clone
-  git clone https://github.com/AquiGorka/dotfiles ~/dotfiles
-  # execute permissions for dotfiles/bin
-  chmod +x `find ~/dotfiles/bin -type f`
-fi
+# tmux tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # symlink
 ~/dotfiles/symlink
