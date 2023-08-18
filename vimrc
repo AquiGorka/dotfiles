@@ -73,6 +73,7 @@ nmap <leader>r :source ~/.vimrc<CR>
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menuone
+" redo
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " highlight long lines
 match ErrorMsg '\%>120v.\+'
@@ -206,6 +207,7 @@ Plug 'inside/vim-search-pulse'
 Plug 'arcticicestudio/nord-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'dense-analysis/ale'
+Plug 'pechorin/any-jump.vim'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
