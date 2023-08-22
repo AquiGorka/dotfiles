@@ -128,6 +128,8 @@ nmap ss<Space> :tab sball<CR>
   " z<CR> puts current line to top of screen
   " z. puts current line to center of screen
   " z- puts current line to bottom of screen
+" move split to tab
+" <c-w>T
 " prepare things for git log (space is there on purpose)
 map <leader>l :! git log -p 
 
