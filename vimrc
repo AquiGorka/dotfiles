@@ -132,6 +132,8 @@ nmap ss<Space> :tab sball<CR>
 " <c-w>T
 " prepare things for git log (space is there on purpose)
 map <leader>l :! git log -p 
+" clear current line without removing it and swith to insert mode
+" cc
 
 " Plugins
 call plug#begin('~/.vim/bundle')
