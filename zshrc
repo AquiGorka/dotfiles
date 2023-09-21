@@ -24,7 +24,7 @@ if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
 fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions fzf)
+plugins=(git sudo zsh-autosuggestions fzf pipenv)
 
 # User configuration
 path=(
