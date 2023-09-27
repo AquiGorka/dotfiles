@@ -24,7 +24,7 @@ if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
 fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions fzf pipenv)
+plugins=(git sudo zsh-autosuggestions fzf pipenv nvm)
 
 # User configuration
 path=(
@@ -47,6 +47,10 @@ path+=($GOPATH/bin)
 
 # fix autocompletions if using several users
 ZSH_DISABLE_COMPFIX=true
+
+# change node version if .nvmrc is found
+# https://stackoverflow.com/questions/73077938/how-to-correctly-setup-plugin-nvm-for-oh-my-zsh
+zstyle ':omz:plugins:nvm' autoload yes
 
 # source
 source $ZSH/oh-my-zsh.sh
@@ -155,26 +159,3 @@ source ~/.nvm/nvm.sh
 # use homebrew vim instead of macos
 alias vi=/opt/homebrew/bin/vim
 alias vim=/opt/homebrew/bin/vim
-
-# automatically set nvm version if .nvmrc
-# https://github.com/nvm-sh/nvm#zsh
-autoload -U add-zsh-hook
-load-nvmrc() {
-  local node_version="$(nvm version)"
-  local nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$node_version" ]; then
-      nvm use
-    fi
-  elif [ "$node_version" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
