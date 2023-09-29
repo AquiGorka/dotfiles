@@ -134,6 +134,10 @@ nmap ss<Space> :tab sball<CR>
 map <leader>l :! git log -p 
 " clear current line without removing it and swith to insert mode
 " cc
+" open some other buffer in vertical split
+" :vert sb N
+" open some other buffer in horizontal split
+" :sb N
 
 " Plugins
 call plug#begin('~/.vim/bundle')
