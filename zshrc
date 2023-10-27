@@ -159,3 +159,5 @@ source ~/.nvm/nvm.sh
 # use homebrew vim instead of macos
 alias vi=/opt/homebrew/bin/vim
 alias vim=/opt/homebrew/bin/vim
+
+alias rm=trash
