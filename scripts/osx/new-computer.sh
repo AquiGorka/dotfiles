@@ -58,3 +58,4 @@ brew install kitty
 brew install fd
 brew install bat
 brew install trash
+brew install switchaudio-osx
