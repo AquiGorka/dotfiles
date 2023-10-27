@@ -57,3 +57,4 @@ brew install visual-studio-code
 brew install kitty
 brew install fd
 brew install bat
+brew install trash
