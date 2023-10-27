@@ -24,6 +24,14 @@ if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
 fi
 unset ZSH_PLUGINS
 
+# forgit
+# https://github.com/wfxr/forgit
+if [[ ! -f ~/Documents/forgit/forgit.plugin.sh ]]; then
+  echo "Installing forgit"
+  git clone https://github.com/wfxr/forgit ~/Documents/forgit
+fi
+source ~/Documents/forgit/forgit.plugin.sh
+
 plugins=(git sudo zsh-autosuggestions fzf pipenv nvm)
 
 # User configuration
@@ -170,3 +178,4 @@ alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\""
 alias sall="SwitchAudioSource -a"
 # show current option
 alias scur="SwitchAudioSource -c"
+
