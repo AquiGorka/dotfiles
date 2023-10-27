@@ -161,3 +161,12 @@ alias vi=/opt/homebrew/bin/vim
 alias vim=/opt/homebrew/bin/vim
 
 alias rm=trash
+
+# switch to headphones
+alias shead="SwitchAudioSource -s \"External Headphones\""
+# switch to speakers
+alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\""
+# list all options
+alias sall="SwitchAudioSource -a"
+# show current option
+alias scur="SwitchAudioSource -c"
