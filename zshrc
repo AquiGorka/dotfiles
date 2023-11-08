@@ -24,14 +24,6 @@ if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
 fi
 unset ZSH_PLUGINS
 
-# forgit
-# https://github.com/wfxr/forgit
-if [[ ! -f ~/Documents/forgit/forgit.plugin.sh ]]; then
-  echo "Installing forgit"
-  git clone https://github.com/wfxr/forgit ~/Documents/forgit
-fi
-source ~/Documents/forgit/forgit.plugin.sh
-
 plugins=(git sudo zsh-autosuggestions fzf pipenv nvm)
 
 # User configuration
@@ -67,6 +59,14 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
+
+# forgit
+# https://github.com/wfxr/forgit
+if [[ ! -f ~/Documents/forgit/forgit.plugin.sh ]]; then
+  echo "Installing forgit"
+  git clone https://github.com/wfxr/forgit ~/Documents/forgit
+fi
+source ~/Documents/forgit/forgit.plugin.sh
 
 # terminal colors
 export TERM=xterm-256color
