@@ -99,7 +99,7 @@ alias sha='shasum -a 256 '
 # recent git 3 branches
 alias recent='npx git-recent -n 3'
 # open repo url
-alias open='npx git-open'
+alias repo='npx git-open'
 # git rebase
 alias gr='git rebase'
 # git rebase interactive
