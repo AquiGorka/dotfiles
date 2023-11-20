@@ -1,17 +1,7 @@
 #!/bin/bash
-# local setup for new computer
-# usage:
-#   git clone https://github.com/AquiGorka/dotfiles
-#   ./dotfiles/scripts/osx/new-computer.sh
 
 # Ask for the administrator password upfront
 sudo -v
-
-# change hostname
-scutil --set ComputerName $@
-scutil --set LocalHostName $@
-scutil --set HostName $@
-dscacheutil -flushcache
 
 # helpers
 check_install() {
