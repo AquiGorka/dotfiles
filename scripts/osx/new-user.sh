@@ -1,9 +1,4 @@
 #!/bin/bash
-# local setup for new user (assumes new-computer.sh has been executed)
-# usage:
-#   git clone https://github.com/AquiGorka/dotfiles
-#   ./dotfiles/scripts/osx/new-user.sh
-#   you may have to run this a couple of times? (TODO: figure out why, it seems this script stops after installing omz)
 
 # wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
@@ -45,9 +40,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Trackpad
   # tap to click
 
-# Rectangle
-  # Update max screen to cmd + enter
-
 # Dock
   # manually set min, max and magnification
   # automatically hide and show the dock
@@ -70,9 +62,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   # https://blog.chromium.org/2015/05/continuing-to-protect-chrome-users-from.html
   # manually install:
     # jsonview: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=en
-    # momemtum: https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca
     # grammarly: https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen/related?hl=en
-    # videostream: https://chrome.google.com/webstore/detail/videostream-for-google-ch/cnciopoikihiagdjbjpnocolokfelagl?hl=en
     # whatfont: https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm/related?hl=en
 
 # karabiner-elements
