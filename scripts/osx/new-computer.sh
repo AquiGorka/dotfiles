@@ -19,6 +19,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 if [[ ! $(which brew) ]]; then
   echo "Installing hombrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/gorka/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 # nvm
