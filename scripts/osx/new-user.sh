@@ -15,6 +15,8 @@ git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
 
 # tmux tpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  # run tmux then
+  # Press prefix + I (capital i, as in Install) to fetch the plugins
 
 # symlink
 ~/dotfiles/symlink
