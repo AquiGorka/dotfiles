@@ -29,7 +29,6 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 # cli tools
 check_install httpie
 check_install tmux
-check_install vim
 check_install zsh
 check_install tree
 check_install go
@@ -37,6 +36,7 @@ check_install ripgrep
 check_install fzf
 
 # brew
+brew install vim
 brew install rectangle
 brew install webtorrent
 brew install karabiner-elements
