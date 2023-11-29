@@ -235,6 +235,7 @@ hi Comment ctermfg=147
 hi NonText ctermfg=147
 
 " https://www.reddit.com/r/vim/comments/3duumy/changing_markdown_syntax_colors/
+" Drop these in your vimrc and you can do :call GetSyntax() when your cursor is over some text to see what highlight settings it belongs to.
 function! GetSyntaxID()
     return synID(line('.'), col('.'), 1)
 endfunction
