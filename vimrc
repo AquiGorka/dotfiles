@@ -209,6 +209,10 @@ Plug 'airblade/vim-gitgutter'
   nmap zk <Plug>(GitGutterNextHunk)
   nmap zj <Plug>(GitGutterPrevHunk)
 
+  Plug 'junegunn/fzf'
+  "To use fzf in Vim, add the following line to your .vimrc:
+  set rtp+=/opt/homebrew/opt/fzf
+
 Plug 'ervandew/supertab'
 Plug 'gabrielelana/vim-markdown'
 Plug 'inside/vim-search-pulse'
@@ -216,7 +220,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'dense-analysis/ale'
 Plug 'pechorin/any-jump.vim'
-Plug 'junegunn/fzf'
+
 Plug 'mhinz/vim-startify'
 
 " local
