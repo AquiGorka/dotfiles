@@ -220,8 +220,25 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'dense-analysis/ale'
 Plug 'pechorin/any-jump.vim'
-
 Plug 'mhinz/vim-startify'
+Plug 'wsdjeg/FlyGrep.vim'
+Plug 'khzaw/vim-conceal'
+
+Plug 'frazrepo/vim-rainbow'
+  let g:rainbow_active = 2
+
+Plug 'psf/black', { 'branch': 'stable' }
+  augroup black_on_save
+    autocmd!
+    autocmd BufWritePre *.py Black
+  augroup end
+  nnoremap <space>bb :Black<CR>
+  "let g:black_virtual_env = substitute(system('pipenv --venv'), '\n\+$', '', '')
+  let g:black_virtual_env = system('pipenv --venv')
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  " :CocInstall coc-pyright
+  " :CocInstall coc-tsserver coc-json coc-html coc-css
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
