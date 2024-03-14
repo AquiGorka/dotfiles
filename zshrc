@@ -168,9 +168,9 @@ source ~/.nvm/nvm.sh
 alias rm=trash
 
 # switch to headphones
-alias shead="SwitchAudioSource -s \"External Headphones\""
+alias shead="SwitchAudioSource -s \"External Headphones\" && osascript -e 'display notification \"Switched to headphones\" with title \"Audio source\"'"
 # switch to speakers
-alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\""
+alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\" && osascript -e 'display notification \"Switched to speakers\" with title \"Audio source\"'"
 # list all options
 alias sall="SwitchAudioSource -a"
 # show current option
