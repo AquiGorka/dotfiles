@@ -1,13 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# tmux fix nvm
-# https://superuser.com/questions/544989/does-tmux-sort-the-path-variable/583502#583502
-if [ -f /etc/profile ]; then
-    PATH=""
-    source /etc/profile
-fi
-
 # oh-my-zsh
 if [[ ! -d $ZSH ]]; then
   echo "Installing Oh My Zsh"
@@ -57,6 +50,9 @@ source $ZSH/oh-my-zsh.sh
 
 # source local settings
 if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
+if [ -f ~/.zshrc.macos.local ]; then
   source ~/.zshrc.local
 fi
 
@@ -163,16 +159,3 @@ $exit_code
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# just in case
-alias rm=trash
-
-# switch to headphones
-alias shead="SwitchAudioSource -s \"External Headphones\" && osascript -e 'display notification \"Switched to headphones\" with title \"Audio source\"'"
-# switch to speakers
-alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\" && osascript -e 'display notification \"Switched to speakers\" with title \"Audio source\"'"
-# list all options
-alias sall="SwitchAudioSource -a"
-# show current option
-alias scur="SwitchAudioSource -c"
-
