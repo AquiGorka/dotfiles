@@ -52,8 +52,11 @@ source $ZSH/oh-my-zsh.sh
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
-if [ -f ~/.zshrc.macos.local ]; then
-  source ~/.zshrc.local
+if [ -f ~/.zshrc.macos ]; then
+  source ~/.zshrc.macos
+fi
+if [ -f ~/.zshrc.linux ]; then
+  source ~/.zshrc.linux
 fi
 
 # forgit
