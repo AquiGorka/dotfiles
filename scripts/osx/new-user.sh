@@ -8,7 +8,10 @@ defaults write com.apple.dock mru-spaces -bool false
 killall Dock &> /dev/null
 
 # omz
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo "- Installing omz"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # kitty
 git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
@@ -91,7 +94,10 @@ ln -sf ~/dotfiles/vimrc ~/.vimrc
     # save position when dragging
 
 # nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
+if [ ! -d ~/.nvm ]; then
+  echo "- Installing nvm "
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
+fi
 
 # zsh
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
