@@ -19,12 +19,6 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# nvm
-if [ ! -d ~/.nvm ]; then
-  echo "- Installing nvm "
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
-fi
-
 # docker
 if [[ ! $(which docker) ]]; then
   echo "- Installing docker"
