@@ -27,7 +27,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   # plugin manager
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   # tmp
-  mkdir -R ~/.vim/tmp
+  mkdir -p ~/.vim/tmp
   # install plugins
  vim +PlugInstall +qall
 

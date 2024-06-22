@@ -13,13 +13,18 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# kitty
-git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
+# kitty theme
+if [ ! -d ~/.config/kitty/nord-kitty ]; then
+  mkdir -p ~/.config/kitty
+  git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
+fi
 
 # tmux tpm
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   # run tmux then
   # Press prefix + I (capital i, as in Install) to fetch the plugins
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # symlink
 ln -sf ~/dotfiles/zshrc ~/.zshrc
@@ -27,16 +32,18 @@ ln -sf ~/dotfiles/zshrc.macos ~/.zshrc.macos
 ln -sf ~/dotfiles/tmux ~/.tmux.conf
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/gitignore.global ~/.gitignore.global
-mkdir -R ~/.vim/tmp
+mkdir -p ~/.vim/tmp
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 
 # vim
+if [ ! -d ~/.vim/autoload/plug.vim ]; then
   # plugin manager
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   # tmp
   mkdir ~/.vim/tmp
   # install plugins
   vim +PlugInstall +qall
+fi
 
 # nvm
 if [ ! -d ~/.nvm ]; then
