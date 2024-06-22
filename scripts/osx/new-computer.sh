@@ -3,18 +3,6 @@
 # Ask for the administrator password upfront
 sudo -v
 
-# helpers
-check_install() {
-  if [[ ! $(which $@) ]]; then
-    echo "Installing $@"
-    brew install $@
-  fi
-}
-
-# omz
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
 # homebrew
 if [[ ! $(which brew) ]]; then
   echo "Installing hombrew"
@@ -23,8 +11,13 @@ if [[ ! $(which brew) ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+# helpers
+check_install() {
+  if [[ ! $(which $@) ]]; then
+    echo "Installing $@"
+    brew install $@
+  fi
+}
 
 # cli tools
 check_install httpie
@@ -34,6 +27,12 @@ check_install tree
 check_install go
 check_install ripgrep
 check_install fzf
+
+# omz
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo "- Installing omz"
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # brew
 brew install vim

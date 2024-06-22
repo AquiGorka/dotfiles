@@ -38,6 +38,22 @@ ln -sf ~/dotfiles/vimrc ~/.vimrc
   # install plugins
   vim +PlugInstall +qall
 
+# nvm
+if [ ! -d ~/.nvm ]; then
+  echo "- Installing nvm "
+  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
+fi
+
+# zsh
+if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
+  # add to list of shells
+  sudo sh -c "echo $(which zsh) >> /etc/shells"
+  # default
+  chsh -s $(which zsh)
+  # voilá
+  zsh
+fi
+
 # Keyboard
   # input sources
     # add spanish iso to keyboard (manually)
@@ -92,19 +108,3 @@ ln -sf ~/dotfiles/vimrc ~/.vimrc
     # hide menu bar icon
     # 7 results
     # save position when dragging
-
-# nvm
-if [ ! -d ~/.nvm ]; then
-  echo "- Installing nvm "
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
-fi
-
-# zsh
-if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-  # add to list of shells
-  sudo sh -c "echo $(which zsh) >> /etc/shells"
-  # default
-  chsh -s $(which zsh)
-  # voilá
-  zsh
-fi
