@@ -22,8 +22,6 @@ plugins=(git sudo zsh-autosuggestions fzf pipenv nvm)
 # User configuration
 path=(
   "$HOME/.dotfiles/bin"
-  "/opt/homebrew/bin"
-  "/opt/homebrew/sbin"
   "$HOME/bin"
   "/sbin"
   "/bin"

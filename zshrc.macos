@@ -1,3 +1,9 @@
+# User configuration
+path+=(
+  "/opt/homebrew/bin"
+  "/opt/homebrew/sbin"
+)
+
 # tmux fix nvm
 # https://superuser.com/questions/544989/does-tmux-sort-the-path-variable/583502#583502
 if [ -f /etc/profile ]; then
@@ -16,3 +22,5 @@ alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\" && osascript -e 'displ
 alias sall="SwitchAudioSource -a"
 # show current option
 alias scur="SwitchAudioSource -c"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
