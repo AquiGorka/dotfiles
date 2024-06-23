@@ -23,4 +23,5 @@ alias sall="SwitchAudioSource -a"
 # show current option
 alias scur="SwitchAudioSource -c"
 
+# hombrew bin
 eval "$(/opt/homebrew/bin/brew shellenv)"
