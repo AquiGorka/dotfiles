@@ -29,10 +29,13 @@ fi
 # symlink
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/zshrc.macos ~/.zshrc.macos
-ln -sf ~/dotfiles/tmux ~/.tmux.conf
+rm ~/.tmux.conf
+ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/gitignore.global ~/.gitignore.global
-mkdir -p ~/.vim/tmp
+if [ ! -d ~/.vim/tmp ]; then
+  mkdir -p ~/.vim/tmp
+fi
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 
 # vim
@@ -40,7 +43,9 @@ if [ ! -d ~/.vim/autoload/plug.vim ]; then
   # plugin manager
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   # tmp
-  mkdir ~/.vim/tmp
+  if [ ! -d ~/.vim/tmp ]; then
+    mkdir ~/.vim/tmp
+  fi
   # install plugins
   vim +PlugInstall +qall
 fi
