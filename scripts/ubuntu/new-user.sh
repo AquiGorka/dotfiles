@@ -48,6 +48,7 @@ fi
 if [ ! -d ~/.nvm ]; then
   echo "- Installing nvm "
   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
+  nvm install node
 fi
 
 # zsh
