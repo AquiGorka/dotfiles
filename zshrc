@@ -141,6 +141,11 @@ alias gsp="git stash pop"
 function gdf () { git diff $1~ $1 }
 # better git blame
 function gbb() { git blame -s $1 | awk '{print $1,$3,$4}' | less}
+# erase github token
+# $ git credential-osxkeychain erase
+# host=github.com
+# protocol=https
+# [Press Return] x2
 
 # custom prompt
 PROMPT="
