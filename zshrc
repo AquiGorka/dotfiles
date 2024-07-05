@@ -59,11 +59,11 @@ fi
 
 # forgit
 # https://github.com/wfxr/forgit
-if [[ ! -f ~/Documents/forgit/forgit.plugin.sh ]]; then
+if [[ ! -f ~/forgit/forgit.plugin.sh ]]; then
   echo "Installing forgit"
-  git clone https://github.com/wfxr/forgit ~/Documents/forgit
+  git clone https://github.com/wfxr/forgit ~/forgit
 fi
-source ~/Documents/forgit/forgit.plugin.sh
+source ~/forgit/forgit.plugin.sh
 
 # terminal colors
 export TERM=xterm-256color
