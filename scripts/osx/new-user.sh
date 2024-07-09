@@ -120,3 +120,9 @@ fi
     # hide menu bar icon
     # 7 results
     # save position when dragging
+
+# rectangle
+  # Gaps between windows: 6px
+  # TODO
+  # it looks like the configs can be exported and importedç
+  # maybe add to dotfiles?
