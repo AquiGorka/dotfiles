@@ -17,7 +17,7 @@ if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
 fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions fzf pipenv nvm)
+plugins=(git sudo zsh-autosuggestions fzf pipenv nvm virtualenv genpass httpie timer)
 
 # User configuration
 path=(
@@ -147,8 +147,13 @@ function gbb() { git blame -s $1 | awk '{print $1,$3,$4}' | less}
 # protocol=https
 # [Press Return] x2
 
+# genpass
+# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/genpass
+function gpwd() { genpass-xkcd "$@" }
+
 # custom prompt
 PROMPT="
+%{$(virtualenv_prompt_info)%}\
 %{$terminfo[bold]$fg[white]%}λ%{$reset_color%} \
 %(#,%{$bg[yellow]%}%{$fg[black]%}%n%{$reset_color%},%{$fg[cyan]%}%n) \
 %{$fg[white]%}@ \
