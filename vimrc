@@ -237,8 +237,10 @@ Plug 'psf/black', { 'branch': 'stable' }
   let g:black_virtual_env = system('pipenv --venv')
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+  " Run the following to install completion plugins
   " :CocInstall coc-pyright
   " :CocInstall coc-tsserver coc-json coc-html coc-css
+  " :CocInstall coc-go
 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   " https://github.com/fatih/vim-go
