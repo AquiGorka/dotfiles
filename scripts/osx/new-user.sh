@@ -37,6 +37,7 @@ if [ ! -d ~/.vim/tmp ]; then
   mkdir -p ~/.vim/tmp
 fi
 ln -sf ~/dotfiles/vimrc ~/.vimrc
+ln -sf ~/dotfiles/kitty.conf ~/.config/kitty
 
 # vim
 if [ ! -d ~/.vim/autoload/plug.vim ]; then
@@ -124,5 +125,5 @@ fi
 # rectangle
   # Gaps between windows: 6px
   # TODO
-  # it looks like the configs can be exported and importedç
+  # it looks like the configs can be exported and imported
   # maybe add to dotfiles?
