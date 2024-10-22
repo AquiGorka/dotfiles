@@ -19,23 +19,6 @@ unset ZSH_PLUGINS
 
 plugins=(git sudo zsh-autosuggestions fzf pipenv nvm virtualenv genpass httpie timer)
 
-# User configuration
-path=(
-  "$HOME/.dotfiles/bin"
-  "$HOME/bin"
-  "/sbin"
-  "/bin"
-  "/usr/sbin"
-  "/usr/bin"
-  "/usr/local/sbin"
-  "/usr/local/bin"
-)
-
-# go
-export GOPATH=$HOME/golang
-export GOBIN=$GOPATH/bin
-path+=($GOPATH/bin)
-
 # fix autocompletions if using several users
 ZSH_DISABLE_COMPFIX=true
 
@@ -45,6 +28,16 @@ zstyle ':omz:plugins:nvm' autoload yes
 
 # source
 source $ZSH/oh-my-zsh.sh
+
+# go
+export GOPATH=$HOME/golang
+export GOBIN=$GOPATH/bin
+
+# User configuration
+path+=(
+  "$HOME/dotfiles/bin"
+  "$GOBIN"
+)
 
 # source local settings
 if [ -f ~/.zshrc.local ]; then
