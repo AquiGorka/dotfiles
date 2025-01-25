@@ -11,23 +11,6 @@ if [[ ! $(which brew) ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# helpers
-check_install() {
-  if [[ ! $(which $@) ]]; then
-    echo "Installing $@"
-    brew install $@
-  fi
-}
-
-# cli tools
-check_install httpie
-check_install tmux
-check_install zsh
-check_install tree
-check_install go
-check_install ripgrep
-check_install fzf
-
 # omz
 if [ ! -d ~/.oh-my-zsh ]; then
   echo "- Installing omz"
@@ -35,6 +18,13 @@ if [ ! -d ~/.oh-my-zsh ]; then
 fi
 
 # brew
+brew install httpie
+brew install tmux
+brew install zsh
+brew install tree
+brew install go
+brew install ripgrep
+brew install fzf
 brew install vim
 brew install rectangle
 brew install webtorrent
