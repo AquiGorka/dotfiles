@@ -1,1 +1,3 @@
-xmodmap -e "keycode 88 = 37"
+# only for arch (keeping as reference)
+# remap caps lock to ctrl
+# xmodmap -e "keycode 88 = 37"
