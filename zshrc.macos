@@ -11,6 +11,13 @@ if [ -f /etc/profile ]; then
 fi
 
 # just in case
+# trash is keg-only, which means it was not symlinked into /opt/homebrew,
+# because macOS provides similar software and installing this software in
+# parallel can cause all kinds of trouble.
+# If you need to have trash first in your PATH:
+path+=(
+  "/opt/homebrew/opt/trash/bin"
+)
 alias rm=trash
 
 # switch to headphones
