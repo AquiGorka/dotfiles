@@ -22,6 +22,8 @@ alias rm=trash
 
 # switch to headphones
 alias shead="SwitchAudioSource -s \"External Headphones\" && osascript -e 'display notification \"Switched to headphones\" with title \"Audio source\"'"
+# switch to airpods
+alias sair="SwitchAudioSource -s \"AirPods Max USB Audio\" && osascript -e 'display notification \"Switched to airpods\" with title \"Audio source\"'"
 # switch to speakers
 alias smac="SwitchAudioSource -s \"MacBook Pro Speakers\" && osascript -e 'display notification \"Switched to speakers\" with title \"Audio source\"'"
 # list all options
