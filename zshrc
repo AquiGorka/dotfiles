@@ -163,3 +163,7 @@ $exit_code
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# vim bindings for terminal
+# maybe research: https://github.com/jeffreytse/zsh-vi-mode
+bindkey -v
