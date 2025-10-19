@@ -40,3 +40,4 @@ brew install fd
 brew install bat
 brew install trash
 brew install switchaudio-osx
+curl -fsSL https://bun.com/install | bash
