@@ -167,3 +167,10 @@ source ~/.nvm/nvm.sh
 # vim bindings for terminal
 # maybe research: https://github.com/jeffreytse/zsh-vi-mode
 bindkey -v
+
+# bun completions
+[ -s "/Users/gorka/.bun/_bun" ] && source "/Users/gorka/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
