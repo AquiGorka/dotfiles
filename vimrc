@@ -138,6 +138,12 @@ map <leader>l :! git log -p
 " :vert sb N
 " open some other buffer in horizontal split
 " :sb N
+" Automatically read file if changed from the outside, unless the buffer was modified in Vim
+set autoread
+" Check for file changes when Vim gains focus or you switch buffers
+au FocusGained,BufEnter * :silent! checktime
+" Optionally, check for changes when the cursor is idle for a brief moment
+au CursorHold,CursorHoldI * :silent! checktime
 
 " Plugins
 call plug#begin('~/.vim/bundle')
