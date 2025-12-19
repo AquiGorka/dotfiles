@@ -163,6 +163,8 @@ Plug 'itchyny/lightline.vim'
     \   'left': [ ['mode'], ['filename'] ],
     \   'right': [ ['percent', 'lineinfo'] ]
     \ },
+    \ 'separator': { 'left': '', 'right': '' },
+    \ 'subseparator': { 'left': '', 'right': '' }
   \ }
 
 Plug 'scrooloose/nerdtree'
