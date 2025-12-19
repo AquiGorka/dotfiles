@@ -209,8 +209,8 @@ Plug 'prettier/vim-prettier'
   let g:prettier#config#trailing_comma = 'all'
   " put > on the last line instead of new line
   let g:prettier#config#jsx_bracket_same_line = 'false'
-  " format and save
-  nmap <leader>m :Prettier<CR> :update<CR>
+  " " format and save
+  " nmap <leader>m :Prettier<CR> :update<CR>
 
 Plug 'airblade/vim-gitgutter'
   " navigate between hunks
@@ -235,14 +235,24 @@ Plug 'khzaw/vim-conceal'
 Plug 'frazrepo/vim-rainbow'
   let g:rainbow_active = 2
 
-Plug 'psf/black', { 'branch': 'stable' }
-  augroup black_on_save
+" Plug 'psf/black', { 'branch': 'stable' }
+  " augroup black_on_save
+    " autocmd!
+    " autocmd BufWritePre *.py Black
+  " augroup end
+  " nnoremap <space>bb :Black<CR>
+  " "let g:black_virtual_env = substitute(system('pipenv --venv'), '\n\+$', '', '')
+  " let g:black_virtual_env = system('pipenv --venv')
+
+Plug 'shaoran/vim-ruff'
+  nnoremap <space>bb :Ruff check<CR>
+  nnoremap <space>mm :Ruff format<CR>
+  augroup _on_save
     autocmd!
-    autocmd BufWritePre *.py Black
+    autocmd BufWritePre *.py Ruff
   augroup end
-  nnoremap <space>bb :Black<CR>
-  "let g:black_virtual_env = substitute(system('pipenv --venv'), '\n\+$', '', '')
-  let g:black_virtual_env = system('pipenv --venv')
+  " format and save
+  nmap <leader>m :Ruff check<CR> :update<CR>
 
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   " Run the following to install completion plugins
