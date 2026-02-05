@@ -23,6 +23,8 @@ set softtabstop=2
 set expandtab
 set autoindent
 set number
+" Show relative line numbers (distance from cursor)
+set relativenumber
 set ai
 set si
 " Highlight current line
@@ -282,6 +284,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   " Vim-go's use of gopls can be disabled and alternative tools can be used when desired.
   " Integration with Tagbar via gotags.
   " Integration with Ultisnips and other snippet engines.
+
+Plug 'clojure-vim/clojure.vim'
+Plug 'tpope/vim-fireplace'
+Plug 'venantius/vim-cljfmt'
 
 " local
 let $LOCALFILE=expand("~/.vimrc.local")
