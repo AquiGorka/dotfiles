@@ -17,7 +17,7 @@ if [[ ! -d $ZSH_PLUGINS/zsh-autosuggestions ]]; then
 fi
 unset ZSH_PLUGINS
 
-plugins=(git sudo zsh-autosuggestions fzf pipenv nvm virtualenv genpass httpie timer)
+plugins=(git sudo zsh-autosuggestions fzf nvm virtualenv genpass httpie timer)
 
 # fix autocompletions if using several users
 ZSH_DISABLE_COMPFIX=true
