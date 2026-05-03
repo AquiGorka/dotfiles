@@ -75,10 +75,20 @@ if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
 fi
 
 # Keyboard
-  # input sources
-    # add spanish iso to keyboard (manually)
-    # git clone https://github.com/myshov/xkbswitch-macosx
-    # ./xkbswitch-macosx/bin/xkbswitch -se Spanish-ISO
+  # input sources (logout/login required to activate)
+  # Spanish-ISO (Keyboard Layout)
+  if ! defaults read com.apple.HIToolbox AppleEnabledInputSources 2>/dev/null | grep -q "Spanish - ISO"; then
+    defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
+      '{"InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 173; "KeyboardLayout Name" = "Spanish - ISO";}'
+    echo "Added Spanish-ISO keyboard layout"
+  fi
+  # Mandarin Pinyin Simplified (Input Method) — TEST entry, remove after verifying
+  if ! defaults read com.apple.HIToolbox AppleEnabledInputSources 2>/dev/null | grep -q "SCIM.ITABC"; then
+    defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
+      '{"Bundle ID" = "com.apple.inputmethod.SCIM"; "Input Mode" = "com.apple.inputmethod.SCIM.ITABC"; "InputSourceKind" = "Input Mode";}'
+    echo "Added Mandarin Pinyin Simplified input method"
+  fi
+  killall cfprefsd 2>/dev/null || true
 
   # shortcuts (Keyboard)
     # move focus to next window (manually in shortcuts > keyboard)
