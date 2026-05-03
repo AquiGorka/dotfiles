@@ -24,27 +24,33 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 fi
 
-# brew
-brew install httpie
-brew install tmux
-brew install zsh
-brew install tree
-brew install go
-brew install ripgrep
-brew install fzf
-brew install vim
-brew install rectangle
-brew install webtorrent
-brew install karabiner-elements
-brew install alfred
-brew install slack
-brew install gifcapture
-brew install firefox
-brew install docker
-brew install visual-studio-code
-brew install kitty
-brew install fd
-brew install bat
-brew install trash
-brew install switchaudio-osx
+# formulae
+brew install \
+  bat \
+  fd \
+  fzf \
+  gh \
+  go \
+  httpie \
+  ripgrep \
+  switchaudio-osx \
+  tmux \
+  trash \
+  tree \
+  vim \
+  zsh
+
+# casks
+brew install --cask \
+  alfred \
+  firefox \
+  gifcapture \
+  karabiner-elements \
+  kitty \
+  rectangle \
+  slack \
+  visual-studio-code \
+  webtorrent
+
+# bun
 curl -fsSL https://bun.sh/install | bash
