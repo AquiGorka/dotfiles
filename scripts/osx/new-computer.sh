@@ -58,5 +58,22 @@ brew install --cask \
   visual-studio-code \
   webtorrent
 
+# docker desktop (via DMG so the in-app updater stays intact)
+if [ ! -d /Applications/Docker.app ]; then
+  echo "Installing Docker Desktop"
+  if [ "$(uname -m)" = "arm64" ]; then
+    DOCKER_URL=https://desktop.docker.com/mac/main/arm64/Docker.dmg
+  else
+    DOCKER_URL=https://desktop.docker.com/mac/main/amd64/Docker.dmg
+  fi
+  DOCKER_DMG=/tmp/Docker.dmg
+  curl -fsSL -o "$DOCKER_DMG" "$DOCKER_URL"
+  DOCKER_MOUNT=$(hdiutil attach "$DOCKER_DMG" -nobrowse | tail -1 | awk '{print $3}')
+  sudo cp -R "$DOCKER_MOUNT/Docker.app" /Applications/
+  hdiutil detach "$DOCKER_MOUNT" -quiet
+  rm "$DOCKER_DMG"
+  sudo /Applications/Docker.app/Contents/MacOS/install --accept-license --user="$USER"
+fi
+
 # bun
 curl -fsSL https://bun.sh/install | bash
