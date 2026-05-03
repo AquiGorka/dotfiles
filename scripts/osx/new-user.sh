@@ -110,10 +110,6 @@ fi
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
-# Mission control
-  # hot corners remove notes
-  # top right notifications
-
 # chrome
   # offer to save passwords: no
   # offer to translate: no
