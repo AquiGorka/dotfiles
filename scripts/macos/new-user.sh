@@ -191,6 +191,10 @@ user_pref("app.normandy.enabled", false);
 user_pref("browser.shell.checkDefaultBrowser", false);
 // suppress "what's new" override page on update
 user_pref("browser.startup.homepage_override.mstone", "ignore");
+// no Cmd+Q quit confirmation
+user_pref("browser.warnOnQuit", false);
+user_pref("browser.warnOnQuitShortcut", false);
+user_pref("browser.tabs.warnOnClose", false);
 EOF
 fi
 
