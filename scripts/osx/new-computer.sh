@@ -1,8 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
-# Ask for the administrator password upfront
+# Ask for the administrator password upfront and keep it alive
 sudo -v
+while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>/dev/null &
 
 # homebrew
 if [[ ! $(which brew) ]]; then
