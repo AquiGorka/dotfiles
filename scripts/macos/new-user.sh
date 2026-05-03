@@ -149,6 +149,24 @@ killall cfprefsd 2>/dev/null || true
   defaults write NSGlobalDomain _FXSortFoldersFirst -bool true
   killall Finder &> /dev/null
 
+# Finder sidebar favorites — replace defaults with our preferred order.
+# Requires the `mysides` CLI (brew cask, deprecated but still functional).
+# If mysides isn't installed, skip silently — favorites stay at their defaults.
+if command -v mysides >/dev/null 2>&1; then
+  # remove every existing favorite (we'll re-add ours in the desired order)
+  while read -r name _; do
+    [ -n "$name" ] && mysides remove "$name" >/dev/null 2>&1
+  done < <(mysides list)
+  # add favorites in the desired order
+  mysides add "$USER" "file://$HOME/" >/dev/null
+  mysides add Desktop "file://$HOME/Desktop/" >/dev/null
+  mysides add Downloads "file://$HOME/Downloads/" >/dev/null
+  mysides add AirDrop "nwnode://domain-AirDrop" >/dev/null
+  mysides add Trash "x-finder:Trash" >/dev/null
+  mysides add Applications "file:///Applications/" >/dev/null
+  killall Finder &> /dev/null
+fi
+
 # alfred — symlink dotfiles bundle so Alfred uses our shared appearance options
 mkdir -p "$HOME/Library/Application Support/Alfred"
 rmdir "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences" 2>/dev/null || true

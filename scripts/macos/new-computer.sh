@@ -58,12 +58,15 @@ if ! grep -qxF "$BREW_ZSH" /etc/shells; then
 fi
 
 # casks
+# NOTE: mysides was deprecated upstream (Oct 2025) — install still works for now;
+# if/when brew removes it, the Finder sidebar setup in new-user.sh will silently skip.
 brew install --cask \
   alfred \
   firefox \
   gifcapture \
   karabiner-elements \
   kitty \
+  mysides \
   rectangle \
   slack \
   visual-studio-code \
