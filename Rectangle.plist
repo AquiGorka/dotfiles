@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>allowAnyShortcut</key>
+	<true/>
+	<key>alternateDefaultShortcuts</key>
+	<true/>
+	<key>gapSize</key>
+	<real>6</real>
+	<key>internalTilingNotified</key>
+	<true/>
+	<key>landscapeSnapAreas</key>
+	<string>null</string>
+	<key>lastVersion</key>
+	<string>101</string>
+	<key>launchOnLogin</key>
+	<true/>
+	<key>portraitSnapAreas</key>
+	<string>null</string>
+	<key>reflowTodo</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>45</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+	<key>toggleTodo</key>
+	<dict>
+		<key>keyCode</key>
+		<integer>11</integer>
+		<key>modifierFlags</key>
+		<integer>786432</integer>
+	</dict>
+</dict>
+</plist>

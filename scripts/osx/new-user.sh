@@ -126,11 +126,9 @@ EOF
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '{enabled = 1; value = { parameters = (32, 49, 1835008); type = standard; }; }'
 
-# rectangle
-  # Gaps between windows: 6px
-  # TODO
-  # it looks like the configs can be exported and imported
-  # maybe add to dotfiles?
+# rectangle — restore prefs from dotfiles plist (gap=6, custom shortcuts, etc.)
+defaults import com.knollsoft.Rectangle ~/dotfiles/Rectangle.plist
+killall Rectangle &> /dev/null || true
 
 echo
 echo "Done. new-user.sh completed successfully."
