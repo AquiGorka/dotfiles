@@ -28,6 +28,10 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 fi
 
 # symlink
+if [ ! -d ~/dotfiles ]; then
+  echo "Error: ~/dotfiles not found. Clone the dotfiles repo first."
+  exit 1
+fi
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/zshrc.macos ~/.zshrc.macos
 rm -f ~/.tmux.conf
