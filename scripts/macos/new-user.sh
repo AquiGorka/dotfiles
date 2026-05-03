@@ -152,6 +152,9 @@ killall cfprefsd 2>/dev/null || true
 # Finder sidebar favorites — replace defaults with our preferred order.
 # Requires the `mysides` CLI (brew cask, deprecated but still functional).
 # If mysides isn't installed, skip silently — favorites stay at their defaults.
+# MANUAL FOLLOW-UP (once per machine): Finder Settings → Sidebar → Locations,
+# uncheck karma-digital / AirDrop / Trash to hide the duplicates that the
+# Locations section automatically shows. No clean CLI exists for this in Sequoia.
 if command -v mysides >/dev/null 2>&1; then
   # remove every existing favorite (we'll re-add ours in the desired order)
   while read -r name _; do
