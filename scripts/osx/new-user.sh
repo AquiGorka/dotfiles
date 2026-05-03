@@ -37,7 +37,8 @@ if [ ! -d ~/.vim/tmp ]; then
   mkdir -p ~/.vim/tmp
 fi
 ln -sf ~/dotfiles/vimrc ~/.vimrc
-ln -sf ~/dotfiles/kitty.conf ~/.config/kitty
+mkdir -p ~/.config/kitty
+ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 # vim
 if [ ! -d ~/.vim/autoload/plug.vim ]; then
