@@ -114,17 +114,34 @@ fi
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
-# alfred — symlink dotfiles bundle (Alfred ignores prefs.json `current` on first launch,
-# so the bundle must already be in place at the standard path before Alfred starts)
+# alfred — symlink dotfiles bundle so Alfred uses our shared appearance options
 mkdir -p "$HOME/Library/Application Support/Alfred"
 rmdir "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences" 2>/dev/null || true
 ln -sf "$HOME/dotfiles/Alfred.alfredpreferences" "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences"
-cat > "$HOME/Library/Application Support/Alfred/prefs.json" <<EOF
-{
-  "current" : "$HOME/dotfiles/Alfred.alfredpreferences",
-  "localhash" : "0eca06f3702aac10f8d5c02e661d23227f905e97"
-}
-EOF
+
+# Alfred generates its own per-machine localhash on first launch and uses it to find
+# local prefs (theme, hotkey). To make all machines share theme/hotkey, we symlink
+# this machine's hash subdir to the canonical one (airbag's). The per-machine symlink
+# is git-ignored (see Alfred.alfredpreferences/preferences/local/.gitignore).
+ALFRED_LOCAL_DIR="$HOME/dotfiles/Alfred.alfredpreferences/preferences/local"
+ALFRED_CANONICAL="0eca06f3702aac10f8d5c02e661d23227f905e97"
+ALFRED_PREFS_JSON="$HOME/Library/Application Support/Alfred/prefs.json"
+ALFRED_HASH=$(plutil -extract localhash raw -o - "$ALFRED_PREFS_JSON" 2>/dev/null || echo "")
+if [ -z "$ALFRED_HASH" ]; then
+  open -ja Alfred
+  for _ in 1 2 3 4 5 6 7 8 9 10; do
+    sleep 1
+    ALFRED_HASH=$(plutil -extract localhash raw -o - "$ALFRED_PREFS_JSON" 2>/dev/null || echo "")
+    [ -n "$ALFRED_HASH" ] && break
+  done
+fi
+if [ -n "$ALFRED_HASH" ] && [ "$ALFRED_HASH" != "$ALFRED_CANONICAL" ] && [ ! -e "$ALFRED_LOCAL_DIR/$ALFRED_HASH" ]; then
+  ln -sfn "$ALFRED_CANONICAL" "$ALFRED_LOCAL_DIR/$ALFRED_HASH"
+  osascript -e 'tell application "Alfred" to quit' 2>/dev/null || true
+  sleep 1
+  open -ja Alfred
+fi
+
 # remap Spotlight to Ctrl+Opt+Cmd+Space so Alfred can claim Cmd+Space (logout/login or killall SystemUIServer)
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '{enabled = 1; value = { parameters = (32, 49, 1835008); type = standard; }; }'
