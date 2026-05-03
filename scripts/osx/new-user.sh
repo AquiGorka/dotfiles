@@ -143,9 +143,11 @@ if [ -n "$ALFRED_HASH" ] && [ "$ALFRED_HASH" != "$ALFRED_CANONICAL" ] && [ ! -e 
   open -ja "Alfred 5"
 fi
 
-# remap Spotlight to Ctrl+Opt+Cmd+Space so Alfred can claim Cmd+Space (logout/login or killall SystemUIServer)
+# remap Spotlight to Ctrl+Opt+Cmd+Space so Alfred can claim Cmd+Space (logout/login required)
+# AppleSymbolicHotKeysModified must be true or macOS keeps using built-in defaults alongside our changes
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '{enabled = 1; value = { parameters = (32, 49, 1835008); type = standard; }; }'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeysModified -bool true
 
 # rectangle — restore prefs from dotfiles plist (gap=6, custom shortcuts, etc.)
 # killall cfprefsd to invalidate cache so Rectangle reads the fresh values on first launch
