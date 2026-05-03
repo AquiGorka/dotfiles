@@ -163,10 +163,17 @@ fi
 # We can't use enterprise policies.json (modifying the .app bundle breaks codesign on
 # macOS Sequoia+) and we can't install configuration profiles via CLI on non-MDM Macs
 # (Apple disabled `profiles install` in Big Sur). user.js read on every Firefox launch.
-FIREFOX_PROFILE="$HOME/Library/Application Support/Firefox/Profiles/dotfiles.default"
+FIREFOX_BASE="$HOME/Library/Application Support/Firefox"
+FIREFOX_PROFILE="$FIREFOX_BASE/Profiles/dotfiles.default"
 if [ -d /Applications/Firefox.app ] && [ ! -d "$FIREFOX_PROFILE" ]; then
   /Applications/Firefox.app/Contents/MacOS/firefox \
     -CreateProfile "dotfiles $FIREFOX_PROFILE" 2>/dev/null || true
+fi
+# Strip any [Install...] block from profiles.ini — Firefox auto-writes one when launched
+# and pins itself to whichever profile was active, ignoring our [Profile] Default=1.
+if [ -f "$FIREFOX_BASE/profiles.ini" ]; then
+  awk '/^\[Install/{skip=1; next} /^\[/{skip=0} !skip' "$FIREFOX_BASE/profiles.ini" > "$FIREFOX_BASE/profiles.ini.tmp" && \
+    mv "$FIREFOX_BASE/profiles.ini.tmp" "$FIREFOX_BASE/profiles.ini"
 fi
 if [ -d "$FIREFOX_PROFILE" ]; then
   cat > "$FIREFOX_PROFILE/user.js" <<'EOF'
