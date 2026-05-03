@@ -42,6 +42,8 @@ mkdir -p ~/.vim/tmp
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 mkdir -p ~/.config/kitty
 ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+mkdir -p ~/.config/karabiner
+ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
 # vim
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
@@ -109,12 +111,6 @@ fi
   defaults write com.apple.dock autohide -bool true
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
-
-# karabiner-elements
-  # research on adding karabiner.json to dotfiles and symlink
-  # in the meantime, manually:
-  # caps_lock to control
-  # right_command to delete_forward
 
 # alfred
   # manually:
