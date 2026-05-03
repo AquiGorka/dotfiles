@@ -167,8 +167,10 @@ FIREFOX_BASE="$HOME/Library/Application Support/Firefox"
 FIREFOX_PROFILE="$FIREFOX_BASE/Profiles/dotfiles.default"
 if [ -d /Applications/Firefox.app ]; then
   mkdir -p "$FIREFOX_PROFILE"
-  # Write profiles.ini ourselves so dotfiles is marked Default=1 (Firefox creates its
-  # own auto-default profile when no entry has Default=1, ignoring [Profile0] otherwise).
+  # Firefox 67+ uses dedicated per-installation profiles via [Install<hash>] blocks.
+  # The hash 2656FF1E876E9973 is deterministic for /Applications/Firefox.app on macOS.
+  # We write both [Profile0] Default=1 (legacy) AND the [Install...] block so Firefox
+  # uses our dotfiles profile instead of auto-creating a default-release on first launch.
   cat > "$FIREFOX_BASE/profiles.ini" <<EOF
 [Profile0]
 Name=dotfiles
@@ -179,6 +181,10 @@ Default=1
 [General]
 StartWithLastProfile=1
 Version=2
+
+[Install2656FF1E876E9973]
+Default=Profiles/dotfiles.default
+Locked=1
 EOF
 fi
 if [ -d "$FIREFOX_PROFILE" ]; then
