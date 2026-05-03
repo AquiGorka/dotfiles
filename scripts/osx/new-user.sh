@@ -114,8 +114,11 @@ fi
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
-# alfred — point at dotfiles bundle (theme, hotkey, theme options all included)
+# alfred — symlink dotfiles bundle (Alfred ignores prefs.json `current` on first launch,
+# so the bundle must already be in place at the standard path before Alfred starts)
 mkdir -p "$HOME/Library/Application Support/Alfred"
+rmdir "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences" 2>/dev/null || true
+ln -sf "$HOME/dotfiles/Alfred.alfredpreferences" "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences"
 cat > "$HOME/Library/Application Support/Alfred/prefs.json" <<EOF
 {
   "current" : "$HOME/dotfiles/Alfred.alfredpreferences",
@@ -127,8 +130,11 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
   '{enabled = 1; value = { parameters = (32, 49, 1835008); type = standard; }; }'
 
 # rectangle — restore prefs from dotfiles plist (gap=6, custom shortcuts, etc.)
+# killall cfprefsd to invalidate cache so Rectangle reads the fresh values on first launch
+# (otherwise the first-run setup wizard appears despite the imported prefs)
 defaults import com.knollsoft.Rectangle ~/dotfiles/Rectangle.plist
-killall Rectangle &> /dev/null || true
+killall cfprefsd 2>/dev/null || true
+killall Rectangle 2>/dev/null || true
 
 echo
 echo "Done. new-user.sh completed successfully."
