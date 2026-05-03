@@ -163,5 +163,33 @@ if ! osascript -e 'tell application "System Events" to get the name of every log
   osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Rectangle.app", hidden:false}' >/dev/null
 fi
 
+# firefox — pre-create profile + drop user.js with our preferred about:config settings.
+# We can't use enterprise policies.json (modifying the .app bundle breaks codesign on
+# macOS Sequoia+) and we can't install configuration profiles via CLI on non-MDM Macs
+# (Apple disabled `profiles install` in Big Sur). user.js read on every Firefox launch.
+FIREFOX_PROFILE="$HOME/Library/Application Support/Firefox/Profiles/dotfiles.default"
+if [ -d /Applications/Firefox.app ] && [ ! -d "$FIREFOX_PROFILE" ]; then
+  /Applications/Firefox.app/Contents/MacOS/firefox \
+    -CreateProfile "dotfiles $FIREFOX_PROFILE" 2>/dev/null || true
+fi
+if [ -d "$FIREFOX_PROFILE" ]; then
+  cat > "$FIREFOX_PROFILE/user.js" <<'EOF'
+// password manager
+user_pref("signon.rememberSignons", false);
+// telemetry
+user_pref("toolkit.telemetry.unified", false);
+user_pref("toolkit.telemetry.enabled", false);
+user_pref("datareporting.healthreport.uploadEnabled", false);
+user_pref("datareporting.policy.dataSubmissionEnabled", false);
+// studies
+user_pref("app.shield.optoutstudies.enabled", false);
+user_pref("app.normandy.enabled", false);
+// don't check default browser
+user_pref("browser.shell.checkDefaultBrowser", false);
+// suppress "what's new" override page on update
+user_pref("browser.startup.homepage_override.mstone", "ignore");
+EOF
+fi
+
 echo
 echo "Done. new-user.sh completed successfully."
