@@ -122,9 +122,9 @@ cat > "$HOME/Library/Application Support/Alfred/prefs.json" <<EOF
   "localhash" : "0eca06f3702aac10f8d5c02e661d23227f905e97"
 }
 EOF
-# disable macOS Spotlight Cmd+Space so Alfred can claim it (logout/login or killall SystemUIServer)
+# remap Spotlight to Ctrl+Opt+Cmd+Space so Alfred can claim Cmd+Space (logout/login or killall SystemUIServer)
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
-  '{enabled = 0; value = { parameters = (32, 49, 1048576); type = standard; }; }'
+  '{enabled = 1; value = { parameters = (32, 49, 1835008); type = standard; }; }'
 
 # rectangle
   # Gaps between windows: 6px
