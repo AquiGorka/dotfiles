@@ -55,8 +55,10 @@ fi
 # nvm
 if [ ! -d ~/.nvm ]; then
   echo "- Installing nvm "
-  curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 nvm install node
 nvm use node
 
