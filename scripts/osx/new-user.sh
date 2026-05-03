@@ -74,9 +74,6 @@ if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
   echo "Default shell set to $(which zsh). Open a new terminal to start using it."
 fi
 
-echo
-echo "Done. new-user.sh completed successfully."
-
 # Keyboard
   # input sources
     # add spanish iso to keyboard (manually)
@@ -137,3 +134,6 @@ echo "Done. new-user.sh completed successfully."
   # TODO
   # it looks like the configs can be exported and imported
   # maybe add to dotfiles?
+
+echo
+echo "Done. new-user.sh completed successfully."
