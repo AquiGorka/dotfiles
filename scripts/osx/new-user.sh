@@ -42,6 +42,8 @@ mkdir -p ~/.vim/tmp
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 mkdir -p ~/.config/kitty
 ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+# Karabiner-Elements first launch will prompt for Accessibility, driver extension,
+# and Login Items & Extensions approval — TCC-gated, must be granted manually.
 mkdir -p ~/.config/karabiner
 ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
 
