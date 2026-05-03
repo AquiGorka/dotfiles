@@ -1,8 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
+# This script requires sudo privileges. If your daily user is not an admin,
+# switch to an admin user first: `su - <admin-user>` then rerun.
 # Ask for the administrator password upfront and keep it alive
-sudo -v
+if ! sudo -v; then
+  echo "Error: $(whoami) cannot run sudo on $(hostname -s)."
+  echo "Switch to an admin user (e.g. 'su - <admin-user>') and rerun."
+  exit 1
+fi
 while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>/dev/null &
 
 # homebrew
