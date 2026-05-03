@@ -6,11 +6,16 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>/dev/null &
 
 # homebrew
-if [[ ! $(which brew) ]]; then
+if ! command -v brew &>/dev/null; then
   echo "Installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> "$HOME/.zprofile"
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+  if [ -x /opt/homebrew/bin/brew ]; then
+    BREW_PREFIX=/opt/homebrew
+  else
+    BREW_PREFIX=/usr/local
+  fi
+  (echo; echo "eval \"\$($BREW_PREFIX/bin/brew shellenv)\"") >> "$HOME/.zprofile"
+  eval "$($BREW_PREFIX/bin/brew shellenv)"
 fi
 
 # omz
