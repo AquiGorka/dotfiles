@@ -169,7 +169,7 @@ source ~/.nvm/nvm.sh
 bindkey -v
 
 # bun completions
-[ -s "/Users/gorka/.bun/_bun" ] && source "/Users/gorka/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
