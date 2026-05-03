@@ -78,21 +78,17 @@ if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
   echo "Default shell set to $(which zsh). Open a new terminal to start using it."
 fi
 
-# Keyboard
-  # input sources (logout/login required to activate)
-  # Spanish-ISO (Keyboard Layout)
-  if ! defaults read com.apple.HIToolbox AppleEnabledInputSources 2>/dev/null | grep -q "Spanish - ISO"; then
-    defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
-      '{"InputSourceKind" = "Keyboard Layout"; "KeyboardLayout ID" = 173; "KeyboardLayout Name" = "Spanish - ISO";}'
-    echo "Added Spanish-ISO keyboard layout"
-  fi
-  # Mandarin Pinyin Simplified (Input Method) — TEST entry, remove after verifying
-  if ! defaults read com.apple.HIToolbox AppleEnabledInputSources 2>/dev/null | grep -q "SCIM.ITABC"; then
-    defaults write com.apple.HIToolbox AppleEnabledInputSources -array-add \
-      '{"Bundle ID" = "com.apple.inputmethod.SCIM"; "Input Mode" = "com.apple.inputmethod.SCIM.ITABC"; "InputSourceKind" = "Input Mode";}'
-    echo "Added Mandarin Pinyin Simplified input method"
-  fi
-  killall cfprefsd 2>/dev/null || true
+# Keyboard input sources — Spanish-ISO (logout/login required to activate)
+# NOTE: must use plutil -insert with -json, not `defaults write -array-add` —
+# the latter stores `KeyboardLayout ID` as <string> and macOS silently rejects it.
+HITOOLBOX_PLIST="$HOME/Library/Preferences/com.apple.HIToolbox.plist"
+if ! plutil -extract AppleEnabledInputSources xml1 -o - "$HITOOLBOX_PLIST" 2>/dev/null | grep -q "Spanish - ISO"; then
+  plutil -insert AppleEnabledInputSources -json \
+    '{"InputSourceKind":"Keyboard Layout","KeyboardLayout ID":173,"KeyboardLayout Name":"Spanish - ISO"}' \
+    -append "$HITOOLBOX_PLIST"
+  echo "Added Spanish-ISO keyboard layout"
+fi
+killall cfprefsd 2>/dev/null || true
 
   # shortcuts (Keyboard) — logout/login required to activate
   # Move focus to next window in active app -> Cmd+< (Spanish-ISO `<>` key, keycode 10)
@@ -145,9 +141,13 @@ fi
 
 # remap Spotlight to Ctrl+Opt+Cmd+Space so Alfred can claim Cmd+Space (logout/login required)
 # AppleSymbolicHotKeysModified must be true or macOS keeps using built-in defaults alongside our changes
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
-  '{enabled = 1; value = { parameters = (32, 49, 1835008); type = standard; }; }'
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeysModified -bool true
+# NOTE: must use plutil -replace with -json — `defaults write -dict-add` stores values
+# as strings and macOS rejects hotkey 64 (Spotlight) when types are wrong.
+HOTKEYS_PLIST="$HOME/Library/Preferences/com.apple.symbolichotkeys.plist"
+plutil -replace AppleSymbolicHotKeys.64 -json \
+  '{"enabled":true,"value":{"parameters":[32,49,1835008],"type":"standard"}}' \
+  "$HOTKEYS_PLIST"
+plutil -replace AppleSymbolicHotKeysModified -bool true "$HOTKEYS_PLIST"
 
 # rectangle — restore prefs from dotfiles plist (gap=6, custom shortcuts, etc.)
 # killall cfprefsd to invalidate cache so Rectangle reads the fresh values on first launch
