@@ -110,14 +110,6 @@ fi
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
-# chrome extensions
-  # no way to do this automatically
-  # https://blog.chromium.org/2015/05/continuing-to-protect-chrome-users-from.html
-  # manually install:
-    # jsonview: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc/related?hl=en
-    # grammarly: https://chrome.google.com/webstore/detail/grammarly-for-chrome/kbfnbcaeplbcioakkpcpgfkobkghlhen/related?hl=en
-    # whatfont: https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm/related?hl=en
-
 # karabiner-elements
   # research on adding karabiner.json to dotfiles and symlink
   # in the meantime, manually:
