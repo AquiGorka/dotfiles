@@ -103,9 +103,12 @@ fi
   defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Dock
-  # manually set min, max and magnification
-  # automatically hide and show the dock
-  # show recent applications in dock
+  defaults write com.apple.dock tilesize -int 48
+  defaults write com.apple.dock largesize -int 80
+  defaults write com.apple.dock magnification -bool true
+  defaults write com.apple.dock autohide -bool true
+  defaults write com.apple.dock show-recents -bool false
+  killall Dock &> /dev/null
 
 # Mission control
   # hot corners remove notes
