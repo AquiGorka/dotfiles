@@ -297,7 +297,7 @@ endif
 
 call plug#end()
 
-colorscheme nord
+silent! colorscheme nord
 
 " comments
 " http://guns.github.io/xterm-color-table.vim/images/xterm-color-table.png
