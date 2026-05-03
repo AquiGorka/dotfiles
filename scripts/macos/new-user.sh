@@ -157,6 +157,11 @@ plutil -replace AppleSymbolicHotKeysModified -bool true "$HOTKEYS_PLIST"
 defaults import com.knollsoft.Rectangle ~/dotfiles/Rectangle.plist
 killall cfprefsd 2>/dev/null || true
 killall Rectangle 2>/dev/null || true
+# ensure Rectangle is a login item (belt-and-suspenders; the launchOnLogin pref also
+# registers it via SMAppService once Rectangle launches, but this works pre-launch)
+if ! osascript -e 'tell application "System Events" to get the name of every login item' | grep -q Rectangle; then
+  osascript -e 'tell application "System Events" to make login item at end with properties {path:"/Applications/Rectangle.app", hidden:false}' >/dev/null
+fi
 
 echo
 echo "Done. new-user.sh completed successfully."
