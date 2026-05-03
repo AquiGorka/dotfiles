@@ -38,9 +38,7 @@ rm -f ~/.tmux.conf
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/gitignore.global ~/.gitignore.global
-if [ ! -d ~/.vim/tmp ]; then
-  mkdir -p ~/.vim/tmp
-fi
+mkdir -p ~/.vim/tmp
 ln -sf ~/dotfiles/vimrc ~/.vimrc
 mkdir -p ~/.config/kitty
 ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
@@ -49,10 +47,6 @@ ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
   # plugin manager
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  # tmp
-  if [ ! -d ~/.vim/tmp ]; then
-    mkdir ~/.vim/tmp
-  fi
   # install plugins
   vim +PlugInstall +qall
 fi
