@@ -65,8 +65,10 @@ nvm use node
 
 # zsh
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-  # add to list of shells
-  sudo sh -c "echo $(which zsh) >> /etc/shells"
+  # add to list of shells (only if not already present)
+  if ! grep -qxF "$(which zsh)" /etc/shells; then
+    sudo sh -c "echo $(which zsh) >> /etc/shells"
+  fi
   # default
   chsh -s $(which zsh)
   # voilá
