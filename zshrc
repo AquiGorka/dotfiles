@@ -94,8 +94,6 @@ alias repo='npx git-open'
 alias gr='git rebase'
 # git rebase interactive
 alias gri='gr -i'
-# git rebase origin/master
-alias grm='gr origin/master'
 # git fetchus (fetch + status)
 alias gf='git fetchus'
 # git checkout
