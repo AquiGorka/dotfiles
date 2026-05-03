@@ -77,3 +77,7 @@ fi
 
 # bun
 curl -fsSL https://bun.sh/install | bash
+
+echo
+echo "Done. new-computer.sh completed successfully."
+echo "Next: run new-user.sh to set up dotfiles symlinks and per-user config."
