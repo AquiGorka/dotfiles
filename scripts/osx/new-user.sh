@@ -58,7 +58,9 @@ if [ ! -d ~/.nvm ]; then
 fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-nvm install node
+if ! nvm ls node &>/dev/null; then
+  nvm install node
+fi
 nvm use node
 
 # zsh
