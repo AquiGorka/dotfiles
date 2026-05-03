@@ -193,7 +193,12 @@ plutil -replace AppleSymbolicHotKeysModified -bool true "$HOTKEYS_PLIST"
 # (otherwise the first-run setup wizard appears despite the imported prefs)
 defaults import com.knollsoft.Rectangle ~/dotfiles/Rectangle.plist
 killall cfprefsd 2>/dev/null || true
-killall Rectangle 2>/dev/null || true
+# Restart Rectangle if it was running (killall and reopen so it reads the imported prefs).
+if pgrep -x Rectangle >/dev/null; then
+  killall Rectangle 2>/dev/null || true
+  sleep 1
+fi
+open -a Rectangle 2>/dev/null || true
 # ensure Rectangle is a login item (belt-and-suspenders; the launchOnLogin pref also
 # registers it via SMAppService once Rectangle launches, but this works pre-launch)
 if ! osascript -e 'tell application "System Events" to get the name of every login item' | grep -q Rectangle; then
