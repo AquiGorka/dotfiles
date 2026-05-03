@@ -63,24 +63,11 @@ brew install --cask \
   visual-studio-code \
   webtorrent
 
-# firefox enterprise policies (system-wide; quit Firefox fully to apply)
-if [ -d /Applications/Firefox.app ]; then
-  sudo mkdir -p /Applications/Firefox.app/Contents/Resources/distribution
-  sudo tee /Applications/Firefox.app/Contents/Resources/distribution/policies.json > /dev/null <<'EOF'
-{
-  "policies": {
-    "PasswordManagerEnabled": false,
-    "OfferToSaveLogins": false,
-    "DisableTelemetry": true,
-    "DisableFirefoxStudies": true,
-    "DontCheckDefaultBrowser": true,
-    "OverrideFirstRunPage": ""
-  }
-}
-EOF
-else
-  echo "Skipping Firefox policies: /Applications/Firefox.app not found"
-fi
+# NOTE: Firefox enterprise policies via Contents/Resources/distribution/policies.json
+# was removed — modifying the .app bundle invalidates the code signature on macOS
+# Sequoia+, causing "Firefox is damaged and can't be opened". Configure desired
+# settings manually, or revisit with a non-bundle delivery method (mobileconfig
+# requires manual Profile approval; user.js requires post-first-launch handling).
 
 # docker desktop (via DMG so the in-app updater stays intact)
 if [ ! -d /Applications/Docker.app ]; then
