@@ -63,19 +63,27 @@ if ! grep -qxF "$BREW_ZSH" /etc/shells; then
 fi
 
 # casks
-# NOTE: mysides was deprecated upstream (Oct 2025) — install still works for now;
-# if/when brew removes it, the Finder sidebar setup in new-user.sh will silently skip.
 brew install --cask \
   alfred \
   firefox \
   gifcapture \
   karabiner-elements \
   kitty \
-  mysides \
   rectangle \
   slack \
   visual-studio-code \
   webtorrent
+
+# mysides — installed from upstream .pkg (deprecated in brew, but the binary still
+# works under Rosetta and we use it for Finder sidebar setup in new-user.sh)
+if ! command -v mysides &>/dev/null; then
+  echo "Installing mysides"
+  MYSIDES_PKG=/tmp/mysides.pkg
+  curl -fsSL -o "$MYSIDES_PKG" \
+    https://github.com/mosen/mysides/releases/download/v1.0.1/mysides-1.0.1.pkg
+  sudo installer -pkg "$MYSIDES_PKG" -target /
+  rm "$MYSIDES_PKG"
+fi
 
 # NOTE: Firefox enterprise policies via Contents/Resources/distribution/policies.json
 # was removed — modifying the .app bundle invalidates the code signature on macOS
