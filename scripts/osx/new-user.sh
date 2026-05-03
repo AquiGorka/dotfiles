@@ -90,9 +90,10 @@ fi
   fi
   killall cfprefsd 2>/dev/null || true
 
-  # shortcuts (Keyboard)
-    # move focus to next window (manually in shortcuts > keyboard)
-    # https://apple.stackexchange.com/questions/280220/how-to-change-the-default-shortcut-for-move-focus-to-next-window-to-something
+  # shortcuts (Keyboard) — logout/login required to activate
+  # Move focus to next window in active app -> Cmd+< (Spanish-ISO `<>` key, keycode 10)
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 \
+    '{enabled = 1; value = { parameters = (60, 10, 1048576); type = standard; }; }'
 
 # Trackpad
   # tap to click
