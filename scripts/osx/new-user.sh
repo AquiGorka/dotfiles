@@ -128,7 +128,7 @@ ALFRED_CANONICAL="0eca06f3702aac10f8d5c02e661d23227f905e97"
 ALFRED_PREFS_JSON="$HOME/Library/Application Support/Alfred/prefs.json"
 ALFRED_HASH=$(plutil -extract localhash raw -o - "$ALFRED_PREFS_JSON" 2>/dev/null || echo "")
 if [ -z "$ALFRED_HASH" ]; then
-  open -ja Alfred
+  open -ja "Alfred 5"
   for _ in 1 2 3 4 5 6 7 8 9 10; do
     sleep 1
     ALFRED_HASH=$(plutil -extract localhash raw -o - "$ALFRED_PREFS_JSON" 2>/dev/null || echo "")
@@ -136,10 +136,11 @@ if [ -z "$ALFRED_HASH" ]; then
   done
 fi
 if [ -n "$ALFRED_HASH" ] && [ "$ALFRED_HASH" != "$ALFRED_CANONICAL" ] && [ ! -e "$ALFRED_LOCAL_DIR/$ALFRED_HASH" ]; then
-  ln -sfn "$ALFRED_CANONICAL" "$ALFRED_LOCAL_DIR/$ALFRED_HASH"
-  osascript -e 'tell application "Alfred" to quit' 2>/dev/null || true
+  # Copy (not symlink) so Alfred's writes don't clobber the canonical
+  cp -R "$ALFRED_LOCAL_DIR/$ALFRED_CANONICAL" "$ALFRED_LOCAL_DIR/$ALFRED_HASH"
+  osascript -e 'tell application "Alfred 5" to quit' 2>/dev/null || true
   sleep 1
-  open -ja Alfred
+  open -ja "Alfred 5"
 fi
 
 # remap Spotlight to Ctrl+Opt+Cmd+Space so Alfred can claim Cmd+Space (logout/login or killall SystemUIServer)
