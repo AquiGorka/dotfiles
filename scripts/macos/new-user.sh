@@ -20,9 +20,7 @@ if [ ! -d ~/.config/kitty/nord-kitty ]; then
   git clone https://github.com/connorholyday/nord-kitty ~/.config/kitty/nord-kitty
 fi
 
-# tmux tpm
-  # run tmux then
-  # Press prefix + I (capital i, as in Install) to fetch the plugins
+# tpm clone (plugin install happens after symlinks since install_plugins reads ~/.tmux.conf)
 if [ ! -d ~/.tmux/plugins/tpm ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
@@ -46,6 +44,9 @@ ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 # and Login Items & Extensions approval — TCC-gated, must be granted manually.
 mkdir -p ~/.config/karabiner
 ln -sf ~/dotfiles/karabiner.json ~/.config/karabiner/karabiner.json
+
+# tmux plugins (now that ~/.tmux.conf is symlinked, install_plugins can read it)
+~/.tmux/plugins/tpm/bin/install_plugins
 
 # vim
 if [ ! -f ~/.vim/autoload/plug.vim ]; then
