@@ -41,7 +41,7 @@ mkdir -p ~/.config/kitty
 ln -sf ~/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 # vim
-if [ ! -d ~/.vim/autoload/plug.vim ]; then
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
   # plugin manager
   curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   # tmp
