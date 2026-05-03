@@ -68,13 +68,9 @@ if ! nvm ls node &>/dev/null; then
 fi
 nvm use node
 
-# zsh
+# zsh — change login shell to brew zsh (requires user password, not sudo).
+# brew zsh is added to /etc/shells by new-computer.sh; without that, chsh fails.
 if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
-  # add to list of shells (only if not already present)
-  if ! grep -qxF "$(which zsh)" /etc/shells; then
-    sudo sh -c "echo $(which zsh) >> /etc/shells"
-  fi
-  # default
   chsh -s $(which zsh)
   echo "Default shell set to $(which zsh). Open a new terminal to start using it."
 fi

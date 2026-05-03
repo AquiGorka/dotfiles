@@ -51,6 +51,12 @@ brew install \
   vim \
   zsh
 
+# whitelist the brew zsh in /etc/shells so per-user chsh (in new-user.sh) succeeds
+BREW_ZSH="$BREW_PREFIX/bin/zsh"
+if ! grep -qxF "$BREW_ZSH" /etc/shells; then
+  echo "$BREW_ZSH" | sudo tee -a /etc/shells > /dev/null
+fi
+
 # casks
 brew install --cask \
   alfred \
