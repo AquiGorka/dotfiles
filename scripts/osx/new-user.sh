@@ -3,7 +3,7 @@ set -euo pipefail
 
 # wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
-# don’t automatically rearrange Spaces based on most recent use
+# don't automatically rearrange Spaces based on most recent use
 defaults write com.apple.dock mru-spaces -bool false
 # restart dock
 killall Dock &> /dev/null
