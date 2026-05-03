@@ -110,25 +110,6 @@ fi
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
-# firefox enterprise policies (quit Firefox fully before re-run to apply)
-if [ -d /Applications/Firefox.app ]; then
-  sudo mkdir -p /Applications/Firefox.app/Contents/Resources/distribution
-  sudo tee /Applications/Firefox.app/Contents/Resources/distribution/policies.json > /dev/null <<'EOF'
-{
-  "policies": {
-    "PasswordManagerEnabled": false,
-    "OfferToSaveLogins": false,
-    "DisableTelemetry": true,
-    "DisableFirefoxStudies": true,
-    "DontCheckDefaultBrowser": true,
-    "OverrideFirstRunPage": ""
-  }
-}
-EOF
-else
-  echo "Skipping Firefox policies: /Applications/Firefox.app not found"
-fi
-
 # chrome extensions
   # no way to do this automatically
   # https://blog.chromium.org/2015/05/continuing-to-protect-chrome-users-from.html
