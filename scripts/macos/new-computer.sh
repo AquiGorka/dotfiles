@@ -11,6 +11,11 @@ if ! sudo -v; then
 fi
 while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>/dev/null &
 
+# Rosetta (Apple Silicon only) — needed for x86_64-only binaries like mysides
+if [ "$(uname -m)" = "arm64" ] && [ ! -d /Library/Apple/usr/libexec/oah ]; then
+  softwareupdate --install-rosetta --agree-to-license
+fi
+
 # homebrew
 if ! command -v brew &>/dev/null; then
   echo "Installing homebrew"
