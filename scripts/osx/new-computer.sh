@@ -15,14 +15,19 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" 2>/dev/null || exit; done 2>
 if ! command -v brew &>/dev/null; then
   echo "Installing homebrew"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  if [ -x /opt/homebrew/bin/brew ]; then
-    BREW_PREFIX=/opt/homebrew
-  else
-    BREW_PREFIX=/usr/local
-  fi
-  (echo; echo "eval \"\$($BREW_PREFIX/bin/brew shellenv)\"") >> "$HOME/.zprofile"
-  eval "$($BREW_PREFIX/bin/brew shellenv)"
 fi
+
+# brew shellenv: arch-aware, append to ~/.zprofile only if missing, eval every run
+if [ -x /opt/homebrew/bin/brew ]; then
+  BREW_PREFIX=/opt/homebrew
+else
+  BREW_PREFIX=/usr/local
+fi
+SHELLENV_LINE="eval \"\$($BREW_PREFIX/bin/brew shellenv)\""
+if ! grep -qF "$SHELLENV_LINE" "$HOME/.zprofile" 2>/dev/null; then
+  printf '\n%s\n' "$SHELLENV_LINE" >> "$HOME/.zprofile"
+fi
+eval "$($BREW_PREFIX/bin/brew shellenv)"
 
 # omz
 if [ ! -d ~/.oh-my-zsh ]; then
