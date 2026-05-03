@@ -114,16 +114,17 @@ fi
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
-# alfred
-  # manually:
-  # disable spotlight shortcut search spotlight using spotlight > shortcuts
-  # frosty teal theme
-  # theme options
-    # hide hat
-    # hide result shortcuts
-    # hide menu bar icon
-    # 7 results
-    # save position when dragging
+# alfred — point at dotfiles bundle (theme, hotkey, theme options all included)
+mkdir -p "$HOME/Library/Application Support/Alfred"
+cat > "$HOME/Library/Application Support/Alfred/prefs.json" <<EOF
+{
+  "current" : "$HOME/dotfiles/Alfred.alfredpreferences",
+  "localhash" : "0eca06f3702aac10f8d5c02e661d23227f905e97"
+}
+EOF
+# disable macOS Spotlight Cmd+Space so Alfred can claim it (logout/login or killall SystemUIServer)
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 \
+  '{enabled = 0; value = { parameters = (32, 49, 1048576); type = standard; }; }'
 
 # rectangle
   # Gaps between windows: 6px
