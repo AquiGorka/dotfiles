@@ -71,8 +71,7 @@ if [[ ! $(echo $SHELL) == $(which zsh) ]]; then
   fi
   # default
   chsh -s $(which zsh)
-  # voilá
-  zsh
+  echo "Default shell set to $(which zsh). Open a new terminal to start using it."
 fi
 
 # Keyboard
