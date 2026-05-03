@@ -108,6 +108,47 @@ killall cfprefsd 2>/dev/null || true
   defaults write com.apple.dock show-recents -bool false
   killall Dock &> /dev/null
 
+# Finder
+  # default new windows to column view
+  defaults write com.apple.finder FXPreferredViewStyle -string clmv
+  # group arranged-view items by Name
+  defaults write com.apple.finder FXArrangeGroupViewBy -string Name
+  # Get Info window width (px)
+  defaults write com.apple.finder FXInfoWindowWidth -int 400
+  # new Finder windows open at the Home folder (PfHm = Path Home)
+  defaults write com.apple.finder NewWindowTarget -string PfHm
+  # show external hard drives on the desktop
+  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
+  # hide internal hard drives on the desktop
+  defaults write com.apple.finder ShowHardDrivesOnDesktop -bool false
+  # show removable media (USB sticks, SD cards, etc.) on the desktop
+  defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+  # always show the Finder sidebar
+  defaults write com.apple.finder ShowSidebar -bool true
+  # keep the sidebar "Devices" section expanded
+  defaults write com.apple.finder SidebarDevicesSectionDisclosedState -bool true
+  # keep the sidebar "Places" (Favorites) section expanded
+  defaults write com.apple.finder SidebarPlacesSectionDisclosedState -bool true
+  # disable iCloud Drive Desktop folder syncing
+  defaults write com.apple.finder FXICloudDriveDesktop -bool false
+  # disable iCloud Drive Documents folder syncing
+  defaults write com.apple.finder FXICloudDriveDocuments -bool false
+  # disable iCloud Drive integration
+  defaults write com.apple.finder FXICloudDriveEnabled -bool false
+  # mark user as not logged into iCloud (suppresses related Finder UI)
+  defaults write com.apple.finder FXICloudLoggedIn -bool false
+  # hide "Recent Tags" section in the sidebar
+  defaults write com.apple.finder ShowRecentTags -bool false
+  # in the Recents view, group by date last opened
+  defaults write com.apple.finder RecentsArrangeGroupViewBy -string "Date Last Opened"
+  # always show file extensions in Finder
+  defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+  # show hidden files (dotfiles) in Finder
+  defaults write NSGlobalDomain AppleShowAllFiles -bool true
+  # sort folders before files when sorting (alphabetical, etc.)
+  defaults write NSGlobalDomain _FXSortFoldersFirst -bool true
+  killall Finder &> /dev/null
+
 # alfred — symlink dotfiles bundle so Alfred uses our shared appearance options
 mkdir -p "$HOME/Library/Application Support/Alfred"
 rmdir "$HOME/Library/Application Support/Alfred/Alfred.alfredpreferences" 2>/dev/null || true
