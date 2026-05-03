@@ -165,15 +165,21 @@ fi
 # (Apple disabled `profiles install` in Big Sur). user.js read on every Firefox launch.
 FIREFOX_BASE="$HOME/Library/Application Support/Firefox"
 FIREFOX_PROFILE="$FIREFOX_BASE/Profiles/dotfiles.default"
-if [ -d /Applications/Firefox.app ] && [ ! -d "$FIREFOX_PROFILE" ]; then
-  /Applications/Firefox.app/Contents/MacOS/firefox \
-    -CreateProfile "dotfiles $FIREFOX_PROFILE" 2>/dev/null || true
-fi
-# Strip any [Install...] block from profiles.ini — Firefox auto-writes one when launched
-# and pins itself to whichever profile was active, ignoring our [Profile] Default=1.
-if [ -f "$FIREFOX_BASE/profiles.ini" ]; then
-  awk '/^\[Install/{skip=1; next} /^\[/{skip=0} !skip' "$FIREFOX_BASE/profiles.ini" > "$FIREFOX_BASE/profiles.ini.tmp" && \
-    mv "$FIREFOX_BASE/profiles.ini.tmp" "$FIREFOX_BASE/profiles.ini"
+if [ -d /Applications/Firefox.app ]; then
+  mkdir -p "$FIREFOX_PROFILE"
+  # Write profiles.ini ourselves so dotfiles is marked Default=1 (Firefox creates its
+  # own auto-default profile when no entry has Default=1, ignoring [Profile0] otherwise).
+  cat > "$FIREFOX_BASE/profiles.ini" <<EOF
+[Profile0]
+Name=dotfiles
+IsRelative=1
+Path=Profiles/dotfiles.default
+Default=1
+
+[General]
+StartWithLastProfile=1
+Version=2
+EOF
 fi
 if [ -d "$FIREFOX_PROFILE" ]; then
   cat > "$FIREFOX_PROFILE/user.js" <<'EOF'
