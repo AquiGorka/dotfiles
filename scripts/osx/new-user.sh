@@ -83,10 +83,11 @@ fi
 # the latter stores `KeyboardLayout ID` as <string> and macOS silently rejects it.
 HITOOLBOX_PLIST="$HOME/Library/Preferences/com.apple.HIToolbox.plist"
 if ! plutil -extract AppleEnabledInputSources xml1 -o - "$HITOOLBOX_PLIST" 2>/dev/null | grep -q "Spanish - ISO"; then
-  plutil -insert AppleEnabledInputSources -json \
+  # insert at index 0 so it's first in the list (default active source on login)
+  plutil -insert AppleEnabledInputSources.0 -json \
     '{"InputSourceKind":"Keyboard Layout","KeyboardLayout ID":173,"KeyboardLayout Name":"Spanish - ISO"}' \
-    -append "$HITOOLBOX_PLIST"
-  echo "Added Spanish-ISO keyboard layout"
+    "$HITOOLBOX_PLIST"
+  echo "Added Spanish-ISO keyboard layout (first in list)"
 fi
 killall cfprefsd 2>/dev/null || true
 
