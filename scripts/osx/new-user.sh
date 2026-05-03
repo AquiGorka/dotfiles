@@ -95,8 +95,12 @@ fi
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 27 \
     '{enabled = 1; value = { parameters = (60, 10, 1048576); type = standard; }; }'
 
-# Trackpad
-  # tap to click
+# Trackpad — logout/login required to activate
+  # tap to click (built-in + bluetooth + global)
+  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+  defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+  defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Dock
   # manually set min, max and magnification
