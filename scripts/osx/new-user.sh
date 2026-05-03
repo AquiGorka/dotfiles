@@ -29,7 +29,7 @@ fi
 # symlink
 ln -sf ~/dotfiles/zshrc ~/.zshrc
 ln -sf ~/dotfiles/zshrc.macos ~/.zshrc.macos
-rm ~/.tmux.conf
+rm -f ~/.tmux.conf
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/gitconfig ~/.gitconfig
 ln -sf ~/dotfiles/gitignore.global ~/.gitignore.global
