@@ -100,6 +100,13 @@ killall cfprefsd 2>/dev/null || true
   defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
   defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# Menu bar
+  # show Fast User Switching icon in the menu bar (2 = menu bar, 8 = Control Center, 24 = both)
+  defaults -currentHost write com.apple.controlcenter UserSwitcher -int 2
+  # display style: 0 = Full Name, 1 = Account Name, 2 = Icon
+  defaults write NSGlobalDomain userMenuExtraStyle -int 2
+  killall ControlCenter &> /dev/null
+
 # Dock
   defaults write com.apple.dock tilesize -int 48
   defaults write com.apple.dock largesize -int 80
